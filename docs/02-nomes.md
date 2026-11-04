@@ -81,6 +81,8 @@ O fundador não se conectou com nenhum da primeira rodada (todos "sérios demais
 
 **Onde aparece no app (v1):** no cabeçalho, na tela de fim de treino (comemorando), e como voz das dicas do dia ("Vozi diz: ...").
 
+**Status (04/11/2026):** arte gerada pelo fundador e entregue como folha única com quadriculado pintado; Claude recortou, removeu o fundo e separou nas 5 peças em `assets/`. Integradas no app.
+
 ### Brief de arte (pipeline do doc 09 do estúdio: uma peça por arquivo, PNG transparente, sem texto)
 
 | Arquivo | Peça | Observação |

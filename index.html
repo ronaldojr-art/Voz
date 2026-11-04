@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#04101A">
+<link rel="icon" type="image/png" href="assets/vozi-icone.png">
+<link rel="apple-touch-icon" href="assets/vozi-icone.png">
 <title>Vozi — diz aí</title>
 <style>
   :root{
@@ -137,6 +139,10 @@
   details summary{cursor:pointer;font-weight:800;font-size:16px;padding:6px 0}
   details p{color:var(--ink-dim);font-size:15px;line-height:1.5;margin:6px 0}
   .warn{font-size:13px;color:var(--ink-dim);line-height:1.45;margin-top:10px}
+  .vz{height:46px;width:46px;object-fit:contain;filter:drop-shadow(0 4px 10px rgba(0,0,0,.45))}
+  .mascot{display:block;margin:0 auto 8px;height:104px;filter:drop-shadow(0 8px 16px rgba(0,0,0,.45))}
+  .mascot.big{height:190px;margin:4px auto 10px}
+  .hrow{display:flex;align-items:center;gap:10px}
 </style>
 </head>
 <body>
@@ -145,7 +151,7 @@
 <!-- ================= INÍCIO ================= -->
 <section class="screen on" id="s-home">
   <header>
-    <h1>🐦 Vozi <small>diz aí. cinco minutos por dia, falando melhor</small></h1>
+    <div class="hrow"><img class="vz" src="assets/vozi-base.png" alt="Vozi, o sabiá"><h1>Vozi <small>diz aí. cinco minutos por dia, falando melhor</small></h1></div>
     <div class="row">
       <button class="iconbtn" onclick="go('s-diario')" title="Diário">📓</button>
       <button class="iconbtn" onclick="go('s-sobre')" title="Como funciona">?</button>
@@ -187,7 +193,7 @@
 <!-- ================= FIM ================= -->
 <section class="screen" id="s-done">
   <header><h1>Dia marcado <small>o Vozi ouviu. Você falou, e é isso que conta.</small></h1></header>
-  <div class="celebrate">🐦</div>
+  <img class="mascot big" src="assets/vozi-comemora.png" alt="Vozi comemorando">
   <div class="card" style="text-align:center">
     <div class="week" id="week-done"></div>
     <p id="done-msg"></p>
@@ -401,7 +407,7 @@ function renderStep(){
 
 /* --- 1. respira --- */
 function renderBreath(el){
-  el.innerHTML=`<h2 class="steptitle">🫁 Respira</h2><p class="stepsub">Mão na barriga. O ar entra pelo nariz e empurra a mão pra fora. Quatro ciclos.</p>
+  el.innerHTML=`<img class="mascot" src="assets/vozi-respira.png" alt="Vozi respirando"><h2 class="steptitle">🫁 Respira</h2><p class="stepsub">Mão na barriga. O ar entra pelo nariz e empurra a mão pra fora. Quatro ciclos.</p>
   <div class="breath"><div class="orb" id="orb"></div><div class="lbl" id="blbl">Pronto?<small>começa em 2s</small></div></div>
   <div class="row" style="justify-content:center;gap:16px" id="bcount"><span class="faint">ciclo 1 de 4</span></div>
   <div style="height:16px"></div><button class="btn primary" onclick="next()">Próximo</button>`;
@@ -458,7 +464,7 @@ function renderTarget(){ const l=document.getElementById('target-lbl'); if(l)l.t
 let rec={mr:null,stream:null,chunks:[],sr:null,start:0,active:false,words:0,fillers:0};
 function renderSpeak(el){
   const m=session.molde;
-  el.innerHTML=`<h2 class="steptitle">🎙️ Fala livre</h2><p class="stepsub">O Vozi quer ouvir. Um minuto sobre o tema, seguindo o molde. Pausar é permitido. Silêncio não é erro. Terminar antes do tempo também não.</p>
+  el.innerHTML=`<img class="mascot" src="assets/vozi-ouvindo.png" alt="Vozi ouvindo"><h2 class="steptitle">🎙️ Fala livre</h2><p class="stepsub">O Vozi quer ouvir. Um minuto sobre o tema, seguindo o molde. Pausar é permitido. Silêncio não é erro. Terminar antes do tempo também não.</p>
   <div class="frase">${session.tema}</div>
   <p class="faint" style="text-align:center;font-size:13px;margin:12px 0 2px">molde: <b class="gold">${m.nome}</b> · toque pra marcar onde está</p>
   <div class="chips">${m.passos.map((p,i)=>`<button class="chip gold" onclick="this.classList.toggle('on')">${i+1}. ${p}</button>`).join('')}</div>
@@ -515,7 +521,7 @@ async function endSpeak(){
 function renderListen(el){
   const s=session; let zona='';
   if(s.ppm){ zona=s.ppm>165?'<span style="color:var(--warm)">acelerado</span>':s.ppm<115?'<span style="color:var(--calm)">bem calmo</span>':'<span style="color:var(--ok)">ritmo de conversa</span>'; }
-  el.innerHTML=`<h2 class="steptitle">👂 Reescuta</h2><p class="stepsub">Ouça uma vez inteira antes de julgar. Depois responda com honestidade e gentileza, como falaria de um amigo.</p>
+  el.innerHTML=`<img class="mascot" src="assets/vozi-ouvindo.png" alt="Vozi ouvindo"><h2 class="steptitle">👂 Reescuta</h2><p class="stepsub">Ouça uma vez inteira antes de julgar. Depois responda com honestidade e gentileza, como falaria de um amigo.</p>
   ${s.url?`<audio controls src="${s.url}" preload="auto"></audio>`:`<p class="faint" style="text-align:center">Sem gravação desta vez. Avalie pela sensação.</p>`}
   <div class="metrics">
     <div class="stat"><b>${s.secs||'—'}s</b><span>falou por</span></div>
