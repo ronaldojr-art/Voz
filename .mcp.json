@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "hf-mcp-server": {
+      "type": "http",
+      "url": "https://huggingface.co/mcp?gradio=mcp-tools/Z-Image-Turbo,mcp-tools/Qwen-Image,mcp-tools/FLUX.1-Kontext-Dev,not-lain/background-removal",
+      "headers": {
+        "Authorization": "Bearer ${HF_TOKEN}"
+      }
+    }
+  }
+}
