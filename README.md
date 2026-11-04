@@ -26,6 +26,7 @@ Trilha da semana sem streak e sem punição. Diário salvo no navegador. O áudi
 |---|---|
 | [docs/metodo.md](docs/metodo.md) | O diagnóstico, por que cada passo existe, o que a ciência sustenta e como medir em 4 semanas |
 | [docs/01-produto.md](docs/01-produto.md) | **Voz como produto**: mercado, riscos, auditoria de gatilhos, plano de validação por etapas e monetização |
+| [docs/02-nomes.md](docs/02-nomes.md) | Rodada de nomes: critérios, 14 candidatos com veredito e os dois finalistas |
 
 ## Status
 
