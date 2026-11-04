@@ -55,7 +55,7 @@ O fundador não se conectou com nenhum da primeira rodada (todos "sérios demais
 | **Vozi** ⭐ | Nome de mascote. Curto, inventado, fácil de falar e de registrar. Vira personagem. | **Escolhido** |
 | Destrava | A transformação, a partir da palavra do próprio fundador ("travo") | Forte; perdeu pra afeto do mascote |
 | Sabiá | O pássaro que "sabia assobiar"; mascote embutido | Vira a **espécie do mascote**, não o nome |
-| Diz Aí | Convite oral brasileiro | Reserva de tagline |
+| Diz Aí | Convite oral brasileiro | **Vira a tagline e o botão de gravar** |
 | Voz e Vez | "Ter voz e vez": ser ouvido | Bonito, diz o porquê, não a prática |
 | Voz Alta | "Ler em voz alta" | Pode soar "gritar", o oposto da calma |
 | Pausinha | A técnica no diminutivo | Carinhoso, mas lê como app de pausa |
@@ -70,6 +70,7 @@ O fundador não se conectou com nenhum da primeira rodada (todos "sérios demais
 ## Decisão
 
 - [x] **DECIDIDO (fundador, 04/11/2026): o app chama-se VOZI.** Mascote: um sabiá chamado Vozi.
+- [x] **DECIDIDO (fundador, 04/11/2026): a tagline é "Diz aí".** Vozi é quem; "diz aí" é o que ele fala. É o botão de gravar, o subtítulo do app e o subtítulo na loja ("Vozi: diz aí"). O bordão que o usuário leva pra fora: "fiz meu diz aí hoje".
 - [ ] Verificação formal INPI + domínio + handles (fase de loja)
 
 ## O mascote: Vozi, o sabiá

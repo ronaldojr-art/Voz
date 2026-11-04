@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#04101A">
-<title>Vozi — treino de fala</title>
+<title>Vozi — diz aí</title>
 <style>
   :root{
     --ink:#EAF4F2; --ink-dim:rgba(234,244,242,.62); --ink-faint:rgba(234,244,242,.32);
@@ -145,7 +145,7 @@
 <!-- ================= INÍCIO ================= -->
 <section class="screen on" id="s-home">
   <header>
-    <h1>🐦 Vozi <small>cinco minutos por dia, falando melhor</small></h1>
+    <h1>🐦 Vozi <small>diz aí. cinco minutos por dia, falando melhor</small></h1>
     <div class="row">
       <button class="iconbtn" onclick="go('s-diario')" title="Diário">📓</button>
       <button class="iconbtn" onclick="go('s-sobre')" title="Como funciona">?</button>
@@ -458,13 +458,13 @@ function renderTarget(){ const l=document.getElementById('target-lbl'); if(l)l.t
 let rec={mr:null,stream:null,chunks:[],sr:null,start:0,active:false,words:0,fillers:0};
 function renderSpeak(el){
   const m=session.molde;
-  el.innerHTML=`<h2 class="steptitle">🎙️ Fala livre</h2><p class="stepsub">Um minuto sobre o tema, seguindo o molde. Pausar é permitido. Silêncio não é erro. Terminar antes do tempo também não.</p>
+  el.innerHTML=`<h2 class="steptitle">🎙️ Fala livre</h2><p class="stepsub">O Vozi quer ouvir. Um minuto sobre o tema, seguindo o molde. Pausar é permitido. Silêncio não é erro. Terminar antes do tempo também não.</p>
   <div class="frase">${session.tema}</div>
   <p class="faint" style="text-align:center;font-size:13px;margin:12px 0 2px">molde: <b class="gold">${m.nome}</b> · toque pra marcar onde está</p>
   <div class="chips">${m.passos.map((p,i)=>`<button class="chip gold" onclick="this.classList.toggle('on')">${i+1}. ${p}</button>`).join('')}</div>
   ${ringHTML('r-speak','segundos')}
   <div class="rec" id="recstat"></div>
-  <div class="row"><button class="btn ghost small" onclick="otherTema()" id="btn-tema">Outro tema</button><button class="btn primary" id="btn-rec" onclick="beginSpeak()">🎙️ Gravar e começar</button></div>
+  <div class="row"><button class="btn ghost small" onclick="otherTema()" id="btn-tema">Outro tema</button><button class="btn primary" id="btn-rec" onclick="beginSpeak()">🎙️ Diz aí</button></div>
   <p class="warn">O microfone é pedido só agora, e o áudio não sai do seu aparelho.</p>`;
   document.getElementById('r-speak').querySelector('.num span').textContent='60';
 }

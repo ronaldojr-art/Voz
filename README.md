@@ -1,4 +1,6 @@
-# 🐦 Vozi — cinco minutos por dia, falando melhor
+# 🐦 Vozi — diz aí
+
+> Cinco minutos por dia, falando melhor.
 
 > Para quem sente que as palavras somem, fala rápido, enrolado, e não sabe o que falar.
 
