@@ -46,7 +46,50 @@ Diga cada nome em voz alta para 5 pessoas do círculo, sem explicar nada, e perg
 
 Verificação formal (INPI, domínio, handles nas lojas e redes) fica para a fase de loja, depois da etapa 3 do doc 01.
 
+## Segunda rodada: trocadilhos com "voz" e com o treino
+
+O fundador não se conectou com nenhum da primeira rodada (todos "sérios demais"). Segunda rodada, lado brincalhão:
+
+| Candidato | O que diz | Veredito |
+|---|---|---|
+| **Vozi** ⭐ | Nome de mascote. Curto, inventado, fácil de falar e de registrar. Vira personagem. | **Escolhido** |
+| Destrava | A transformação, a partir da palavra do próprio fundador ("travo") | Forte; perdeu pra afeto do mascote |
+| Sabiá | O pássaro que "sabia assobiar"; mascote embutido | Vira a **espécie do mascote**, não o nome |
+| Diz Aí | Convite oral brasileiro | Reserva de tagline |
+| Voz e Vez | "Ter voz e vez": ser ouvido | Bonito, diz o porquê, não a prática |
+| Voz Alta | "Ler em voz alta" | Pode soar "gritar", o oposto da calma |
+| Pausinha | A técnica no diminutivo | Carinhoso, mas lê como app de pausa |
+| Língua Solta / Lábia / Eco | Fluência, lábia, reescuta | Conotações mistas ou genéricos |
+
+### Checagem de colisões (nov/2026)
+
+- **Brasil:** nenhuma empresa, app ou marca "Vozi" encontrada.
+- **Fora:** Vozi.lo (transporte de veículos, Europa), Vozi Pty Ltd (recepcionista de voz por IA, Austrália, B2B), VOZZi (assistência veicular), e vizinhos como Vozly, Vozee, Vozo. O prefixo "voz-" é concorrido entre apps de voz em inglês, mas nenhum em português nem em educação.
+- **Conclusão:** viável. INPI, domínio (vozi.app, vozi.com.br) e handles ficam para a fase de loja.
+
 ## Decisão
 
-- [ ] Teste de rua com os dois finalistas
-- [ ] **DECIDIDO:** _________________ (fundador, data)
+- [x] **DECIDIDO (fundador, 04/11/2026): o app chama-se VOZI.** Mascote: um sabiá chamado Vozi.
+- [ ] Verificação formal INPI + domínio + handles (fase de loja)
+
+## O mascote: Vozi, o sabiá
+
+**Por que sabiá:** o pássaro brasileiro que canta, do trava-língua que já está no app ("o sabiá sabia assobiar"), e o trocadilho com "sabia". Natureza brasileira, como Lambari e Feira.
+
+**Personalidade:** o amigo que ouve. Nunca corrige com dedo em riste; comemora que você apareceu. Fala pouco e pausado (ele pratica o que ensina). Tem humor leve. Jamais cobra: se você faltou, ele só diz "que bom te ver".
+
+**Onde aparece no app (v1):** no cabeçalho, na tela de fim de treino (comemorando), e como voz das dicas do dia ("Vozi diz: ...").
+
+### Brief de arte (pipeline do doc 09 do estúdio: uma peça por arquivo, PNG transparente, sem texto)
+
+| Arquivo | Peça | Observação |
+|---|---|---|
+| `assets/vozi-base.png` | Vozi de frente, pose neutra e simpática | ~1024×1024; a referência de todas as outras |
+| `assets/vozi-ouvindo.png` | Vozi de lado, cabeça inclinada, "ouvindo" | para a tela de reescuta |
+| `assets/vozi-comemora.png` | Vozi de asas abertas, feliz | tela de fim de treino |
+| `assets/vozi-respira.png` | Vozi de olhos fechados, peito estufado | passo da respiração |
+| `assets/vozi-icone.png` | Só a cabeça, enquadrada para ícone | 1024×1024, fundo sólido (única peça sem transparência) |
+
+**Prompt que deve funcionar no ChatGPT:** *"Mascote de app mobile, um sabiá-laranjeira cartoon, redondinho e simpático, peito laranja e dorso marrom-acinzentado, olhos grandes e calmos, bico pequeno, estilo flat com leve sombra, PNG com fundo transparente, sem texto, sem números, [pose]"*.
+
+**Cores sugeridas (do próprio pássaro):** peito laranja-tijolo (#D9742B), dorso marrom-acinzentado (#6B625A), olho com anel amarelo (#FFD84D, o dourado da casa). Combina com a paleta escura do app sem brigar.
