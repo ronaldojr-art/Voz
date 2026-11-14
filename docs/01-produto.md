@@ -1,4 +1,4 @@
-# 01 — Voz como produto: visão, mercado e plano de validação
+# 01 — Vozi como produto: visão, mercado e plano de validação
 
 > **Tese:** o Duolingo da fala, em português. Cinco minutos por dia para quem fala rápido, enrolado, ou trava e não sabe o que dizer.
 
@@ -45,18 +45,22 @@ Medo de falar é um dos medos mais comuns que existem. A versão cotidiana dele 
 | **Feedback fraco** | O reconhecimento de fala do navegador é ruim em português; sem feedback bom, a reescuta vira só "me ouvi" | Transcrição de qualidade + análise por IA no premium (seção 6) |
 | **Fosso raso** | O código é copiável em uma semana | O fosso é conteúdo em português, marca com tom próprio, base que confia, e dados de progresso do usuário |
 | **"Funciona?"** | Se não houver melhora perceptível em 30 dias, não há boca a boca | Programa de 30 dias com antes/depois gravado, que a própria pessoa compara |
+| **Liga que intimida** | O público chega inseguro com a própria fala; ranking de "quem fala melhor" espanta quem mais precisa | Liga pontua só esforço, é opcional e nunca expõe áudio (doc 03) |
 | **Distribuição** | Sem orçamento de mídia | Conteúdo curto sobre o sintoma (seção 5, etapa 3) é ao mesmo tempo teste de demanda e canal |
 
 ## 4. Auditoria de gatilhos (doc 02 do estúdio, aplicado)
 
-| Gatilho | Versão do Voz | O que NÃO fazemos |
+| Gatilho | Versão do Vozi | O que NÃO fazemos |
 |---|---|---|
 | Hábito por rotina | Trilha da semana, treino de hoje, conteúdo sorteado pela data ("edição de hoje") | Streak que zera; notificação de culpa |
 | Progresso visível | Antes/depois gravado; ritmo médio caindo; muletas por minuto caindo | Barra que só anda pagando |
-| Competência (autodeterminação) | Dica do dia aplicável numa conversa real; "uma coisa pra amanhã" | Notas e rankings que humilham |
+| Competência (autodeterminação) | Dica do dia aplicável numa conversa real; "uma coisa pra amanhã" | Notas e rankings de qualidade da fala |
 | Pico-fim | Fim do treino com dia marcado e frase gentil | Pop-up de upgrade no fim do treino |
 | Recompensa variável | Tema e molde do dia são uma pequena surpresa | Loot, moedas, gacha (não cabe aqui) |
-| Identidade | "Sou alguém que treina a voz todo dia" | Comparação social |
+| Identidade | "Sou alguém que treina a voz todo dia" | Comparar quem fala melhor; expor áudio de alguém |
+| Pertencimento e competição leve | Ligas semanais por esforço: opcionais, com apelido, entre 20 a 30 pessoas parecidas (doc 03) | Ranking de qualidade; concorrentes falsos; rebaixamento que humilha |
+
+**Revisão de 14/11/2026 (decisão do fundador):** a versão anterior deste doc recusava qualquer comparação social. As ligas competitivas entram, porque dão motivo para voltar e abrem caminho para premiações. A linha passa a ser: **liga por esforço, sim; ranking de quem fala melhor, não.** Desenho completo em [03-licoes-do-duolingo.md](03-licoes-do-duolingo.md).
 
 ## 5. Plano de validação (cada etapa tem critério de passa ou não passa)
 
@@ -84,8 +88,11 @@ Cada etapa que não passa gera um doc curto com o que aprendemos, e a decisão d
 | Feedback de IA por gravação (transcrição boa, muletas, ritmo por trecho, estrutura, "o que mudar amanhã") | 3 por mês | ilimitado |
 | Programas temáticos (entrevista, apresentação, pedir aumento, conversa difícil) | — | ✅ |
 | Modo "antes de uma conversa importante" (90s) | ✅ | ✅ |
+| Ligas semanais por esforço (v1) | ✅ | ✅ |
 
-**O que nunca entra:** anúncio no meio do treino, notificação de culpa, streak que zera, desconto por pressão ("só hoje"), venda de dados de voz. O áudio é do usuário; análise premium processa e descarta.
+**O que nunca entra:** anúncio no meio do treino, notificação de culpa, streak que zera, desconto por pressão ("só hoje"), venda de dados de voz, ranking de qualidade da fala, concorrentes falsos em liga, vantagem de pontuação para quem paga. O áudio é do usuário; análise premium processa e descarta.
+
+**Premiações:** começam internas (um mês de premium, acessórios para o Vozi, selo da semana). Prêmio físico ou em dinheiro só com base, patrocinador e consulta jurídica, porque promoção com prêmio é regulada no Brasil (doc 03).
 
 **Conta de padaria:** transcrição e análise por IA custam centavos por minuto de áudio. Um usuário premium gravando 1 minuto por dia custa bem menos de R$ 2 por mês em servidor. Margem confortável a partir de poucos milhares de assinantes; o custo real é aquisição, não infraestrutura.
 
@@ -93,16 +100,17 @@ Cada etapa que não passa gera um doc curto com o que aprendemos, e a decisão d
 
 - **PWA instalável:** ícone na tela inicial, funciona offline, o que já é 80% do caminho sem loja.
 - **Onboarding por sintoma:** "O que mais te atrapalha?" (rápido, enrolado, branco) monta ênfase do plano. Primeira gravação de 30s vira o "antes".
-- **Programa de 30 dias:** conteúdo progressivo em vez de sorteio; dia 30 compara com o dia 1.
+- **Trilha de 30 dias:** quatro unidades (fôlego, pausa, clareza, estrutura) em vez de sorteio; dia 30 compara com o dia 1. Esboço no doc 03. Cabe no protótipo antes da v1.
+- **Ligas semanais por esforço:** pontos por treino feito, nunca por qualidade; opcionais; premiação interna. Regras no doc 03.
 - **Feedback de IA (premium):** transcrição de qualidade, análise de ritmo por trecho, muletas, estrutura (seguiu o molde?), e uma única sugestão para amanhã, em tom de amigo.
-- **Conta opcional:** só para sincronizar entre aparelhos e para o premium. Sem conta continua funcionando.
+- **Conta opcional:** só para sincronizar entre aparelhos, para o premium e para as ligas. Sem conta o treino continua funcionando.
 - **Lojas (Android primeiro):** quando a PWA provar retenção.
 
-**Stack:** continua web (HTML único hoje; migrar para componentes quando doer). Backend mínimo só para o premium: transcrição + análise por modelo de linguagem, por minuto de áudio.
+**Stack:** continua web (HTML único hoje; migrar para componentes quando doer). Backend mínimo para o premium (transcrição + análise por modelo de linguagem, por minuto de áudio) e para as ligas (contas, pontos, tabela semanal).
 
 ## 8. Nome e marca
 
-"Voz" é bom como nome de trabalho e fraco como marca: genérico demais para loja, busca e registro. Rodada de candidatos a fazer, no mesmo molde do Feira Pop (sonoridade, zero associação ruim, distintivo para ASO, verificação INPI e domínio na fase de loja). Critério: precisa dizer calma, não performance. O produto não promete "oratória", promete "falar tranquilo".
+**DECIDIDO (fundador, 04/11/2026):** o app chama-se **Vozi**, a tagline é **"Diz aí"** e o mascote é um sabiá chamado Vozi. "Voz" fica como nome do repositório. A rodada completa, a checagem de colisões e a arte estão em [02-nomes.md](02-nomes.md). Verificação formal (INPI, domínio, handles) fica para a fase de loja. O critério continua valendo para tudo que a marca disser: calma, não performance. O produto não promete "oratória", promete "falar tranquilo".
 
 ## 9. Decisões e próximos passos
 
@@ -110,5 +118,7 @@ Cada etapa que não passa gera um doc curto com o que aprendemos, e a decisão d
 - [ ] Lista de incômodos do uso real → ajustes no protótipo
 - [ ] Etapa 1: círculo de 10
 - [ ] Etapa 2: vídeos sobre o sintoma
-- [ ] Rodada de nomes
+- [x] Rodada de nomes: Vozi, "diz aí", mascote sabiá (doc 02)
+- [x] Estudo do Duolingo e decisão sobre ligas (doc 03, 14/11/2026)
+- [ ] Trilha de 30 dias no protótipo (após a etapa 0)
 - [ ] Decisão de passa ou não passa para v1

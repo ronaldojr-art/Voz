@@ -27,8 +27,9 @@ Trilha da semana sem streak e sem punição. Diário salvo no navegador. O áudi
 | Arquivo | Conteúdo |
 |---|---|
 | [docs/metodo.md](docs/metodo.md) | O diagnóstico, por que cada passo existe, o que a ciência sustenta e como medir em 4 semanas |
-| [docs/01-produto.md](docs/01-produto.md) | **Voz como produto**: mercado, riscos, auditoria de gatilhos, plano de validação por etapas e monetização |
+| [docs/01-produto.md](docs/01-produto.md) | **Vozi como produto**: mercado, riscos, auditoria de gatilhos, plano de validação por etapas e monetização |
 | [docs/02-nomes.md](docs/02-nomes.md) | Rodada de nomes: critérios, candidatos, a decisão (**Vozi**) e o brief do mascote |
+| [docs/03-licoes-do-duolingo.md](docs/03-licoes-do-duolingo.md) | Lições do Duolingo: o que entra, adapta e fica de fora; **ligas por esforço**, premiações e a trilha de 30 dias |
 
 ## Status
 
