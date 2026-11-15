@@ -16,6 +16,7 @@ A liga dá motivo para voltar. A Revoada treina o medo de verdade: falar na fren
 - [x] **Fala gravada, não ao vivo.** A pessoa grava, ouve e escolhe mandar ou regravar uma vez.
 - [x] **Amigos e desconhecidos no mesmo lançamento.** As duas portas abrem juntas, com denúncia, silenciar e verificação de idade desde o primeiro dia. Segurança é requisito de lançamento, não fase posterior.
 - [x] Salas de até 10 pessoas.
+- [x] **Aprovadas pelo fundador:** a checagem contra a frase, nenhum contato entre desconhecidos fora da rodada, e a Revoada com hora marcada.
 
 ## Uma rodada (≈6 minutos)
 
@@ -107,7 +108,7 @@ Por isso a Revoada sai depois das ligas, que só precisam de conta e pontos.
 
 Sala aberta com base pequena fica vazia, e sala vazia mata a ideia. Sem concorrentes falsos, a saída é concentrar as pessoas:
 
-- **Revoada com hora marcada** (proposta): "a Revoada das 20h". Todo mundo que quer plateia aparece na mesma hora.
+- **Revoada com hora marcada:** "a Revoada das 20h". Todo mundo que quer plateia aparece na mesma hora.
 - **Espera útil:** enquanto a sala enche, a pessoa faz o coro sozinha com o Vozi.
 - **Sala começa com 3.** Não precisa de dez.
 
