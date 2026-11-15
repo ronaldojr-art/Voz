@@ -14,7 +14,7 @@ Um treino diário de fala que roda no celular, sem conta, sem backend. Abre no n
 4. **🎙️ Fala livre (60s)** — tema do dia + um molde (ponto, porque, exemplo, ponto), gravado.
 5. **👂 Reescuta** — ouve o áudio, vê ritmo e muletas, se avalia e anota uma coisa pra amanhã.
 
-Trilha da semana sem streak e sem punição. Diário salvo no navegador. O áudio nunca sai do aparelho.
+Uma trilha de 30 dias dá progressão: uma unidade por semana, e no fim você ouve o dia 1 e o dia 30 lado a lado. Nada zera e nada pune. Diário salvo no navegador. O áudio nunca sai do aparelho.
 
 ## Como usar
 
@@ -34,7 +34,8 @@ Trilha da semana sem streak e sem punição. Diário salvo no navegador. O áudi
 
 ## Status
 
-- [x] Protótipo completo: 5 passos, trilha, diário, dicas, ajuste de ritmo
+- [x] Protótipo completo: 5 passos, sequência da semana, diário, dicas, ajuste de ritmo
+- [x] Trilha de 30 dias em 4 unidades (fôlego, pausa, clareza, estrutura), com antes e depois gravados
 - [ ] Uma semana de uso real (a métrica: apareceu 5 de 7?)
 - [ ] Ajustar durações e textos a partir do uso
 - [ ] Modo "antes de uma conversa importante" (90s)

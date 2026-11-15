@@ -125,5 +125,5 @@ Cada etapa que não passa gera um doc curto com o que aprendemos, e a decisão d
 - [x] Estudo do Duolingo e decisão sobre ligas (doc 03, 14/11/2026)
 - [x] Revoada desenhada, com as duas portas e a segurança como requisito de lançamento (doc 04, 15/11/2026)
 - [ ] Teste do WhatsApp da Revoada com o círculo
-- [ ] Trilha de 30 dias no protótipo (após a etapa 0)
+- [x] Trilha de 30 dias no protótipo (15/11/2026)
 - [ ] Decisão de passa ou não passa para v1

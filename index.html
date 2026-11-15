@@ -143,6 +143,26 @@
   .mascot{display:block;margin:0 auto 8px;height:104px;filter:drop-shadow(0 8px 16px rgba(0,0,0,.45))}
   .mascot.big{height:190px;margin:4px auto 10px}
   .hrow{display:flex;align-items:center;gap:10px}
+  /* trilha de 30 dias */
+  .tday{font-size:17px;color:var(--ink)!important;margin:10px 0 2px!important}
+  .trail{display:flex;flex-direction:column;gap:12px;margin:16px 0 2px}
+  .unit .uh{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;font-weight:800;margin-bottom:7px}
+  .unit .uh small{font-weight:600;color:var(--ink-faint)}
+  .unit.locked .uh span{color:var(--ink-faint)}
+  .unit.done .uh small{color:var(--ok)}
+  .dots{position:relative;display:grid;gap:4px;align-items:center;min-height:44px}
+  .dots::before{content:'';position:absolute;left:18px;right:18px;top:50%;height:3px;border-radius:2px;background:rgba(255,255,255,.10);transform:translateY(-50%)}
+  .dot{position:relative;justify-self:center;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+    font-size:13px;font-weight:800;background:#13232C;border:1.5px solid var(--line);color:var(--ink-faint)}
+  .dot.done{background:#17382A;border-color:var(--ok);color:var(--ok)}
+  .dot.cur{width:44px;height:44px;border:2.5px solid var(--gold);background:#22301F;box-shadow:0 0 0 5px rgba(255,216,77,.14)}
+  .dot.cur img{width:36px;height:36px;object-fit:contain}
+  .foco{background:rgba(255,216,77,.08);border:1px solid rgba(255,216,77,.3);border-radius:12px;padding:10px 12px;
+    font-size:14px;line-height:1.4;margin:-4px 0 14px}
+  .foco b{color:var(--gold)}
+  .ba{display:flex;flex-direction:column;gap:10px;margin:10px 0}
+  .ba .lab{font-size:13px;font-weight:800;color:var(--ink-dim)}
+  .ba .lab span{font-weight:600;color:var(--ink-faint)}
 </style>
 </head>
 <body>
@@ -158,10 +178,12 @@
     </div>
   </header>
 
+  <div class="card" id="home-trail"></div>
+
   <div class="card">
     <div class="row spread"><h3 style="margin:0">Sequência da semana</h3><span class="faint" style="font-size:13px" id="weeklabel"></span></div>
     <div class="week" id="week"></div>
-    <p class="faint" style="font-size:13px">Faltou um dia? Tudo bem. A trilha não zera, ela só espera.</p>
+    <p class="faint" style="font-size:13px">Faltou um dia? Tudo bem. Nada zera, a trilha só espera.</p>
     <div class="stats">
       <div class="stat"><b id="st-total">0</b><span>treinos</span></div>
       <div class="stat"><b id="st-week">0/7</b><span>esta semana</span></div>
@@ -169,12 +191,11 @@
     </div>
   </div>
 
-  <div class="card">
-    <h3>Treino de hoje <span class="faint" style="font-weight:600">· ~5 min</span></h3>
-    <p>🫁 Respira · 👄 Articula · 📖 Lê no ritmo · 🎙️ Fala livre · 👂 Reescuta</p>
+  <div class="card" id="home-livre">
+    <h3>Treino livre <span class="faint" style="font-weight:600">· fora da trilha</span></h3>
     <p id="home-topic" class="muted"></p>
-    <div style="height:10px"></div>
-    <button class="btn primary" onclick="startTraining()" id="btn-start">Começar</button>
+    <div style="height:8px"></div>
+    <button class="btn ghost" onclick="startTraining('livre')" id="btn-livre">Fazer um treino livre</button>
   </div>
 
   <div class="card tip" id="home-tip"></div>
@@ -192,7 +213,7 @@
 
 <!-- ================= FIM ================= -->
 <section class="screen" id="s-done">
-  <header><h1>Dia marcado <small>o Vozi ouviu. Você falou, e é isso que conta.</small></h1></header>
+  <header><h1 id="done-h">Dia marcado <small>o Vozi ouviu. Você falou, e é isso que conta.</small></h1></header>
   <img class="mascot big" src="assets/vozi-comemora.png" alt="Vozi comemorando">
   <div class="card" style="text-align:center">
     <div class="week" id="week-done"></div>
@@ -222,8 +243,14 @@
     <button class="iconbtn" onclick="go('s-home')" title="Voltar">←</button>
   </header>
   <div class="card">
+    <details open><summary>🗺️ A trilha de 30 dias</summary>
+      <p>Os mesmos cinco passos todo dia, com um foco por semana: <b>fôlego</b>, <b>pausa</b>, <b>clareza</b> e <b>estrutura</b>. Fôlego e pausa cuidam do "falo rápido". Clareza cuida do "enrolado". Estrutura cuida do "não sei o que falar".</p>
+      <p>No dia 1 você grava uma apresentação curta, que fica guardada como o seu antes. No dia 30 você grava o mesmo tema e ouve as duas.</p>
+      <p>A trilha anda um dia por dia treinado. Se você faltar, ela espera no mesmo lugar. Quem quiser mais no mesmo dia pode repetir o dia ou fazer um treino livre.</p></details>
+  </div>
+  <div class="card">
     <details open><summary>🫁 Respira (45s)</summary>
-      <p>Quem fala rápido e enrolado quase sempre está respirando curto, lá no alto do peito. Você só consegue falar tão devagar quanto respira. Quatro ciclos de respiração baixa (barriga) acalmam o sistema nervoso e dão ar pras frases inteiras.</p></details>
+      <p>Quem fala rápido e enrolado quase sempre está respirando curto, lá no alto do peito. Você só consegue falar tão devagar quanto respira. Quatro ou cinco ciclos de respiração baixa (barriga) acalmam o sistema nervoso e dão ar pras frases inteiras.</p></details>
     <details><summary>👄 Articula (60s)</summary>
       <p>Trava-línguas falado devagar e exagerado acorda a boca: língua, lábios, mandíbula. "Enrolado" é, em boa parte, boca preguiçosa correndo atrás do pensamento. Primeiro bem lento, mastigando cada sílaba. Só depois no ritmo normal.</p></details>
     <details><summary>📖 Lê no ritmo (90s)</summary>
@@ -237,14 +264,14 @@
     <h3>As regras da casa</h3>
     <p>• Não precisa ficar bom hoje. Precisa aparecer hoje.</p>
     <p>• Nada zera. Nada pune. A trilha espera você.</p>
-    <p>• Os áudios ficam só no seu aparelho e somem ao fechar. O diário fica salvo no navegador.</p>
+    <p>• Os áudios ficam só no seu aparelho e somem ao fechar. As únicas gravações guardadas são a do dia 1 e a do dia 30 da trilha, para você comparar, e elas também não saem do aparelho. O diário fica salvo no navegador.</p>
     <p>• Esse treino é pra fluência e segurança no dia a dia. Se houver gagueira, travas fortes ou ansiedade que paralisa, um fonoaudiólogo faz uma diferença enorme, e este app é um bom complemento, não um substituto.</p>
   </div>
   <div class="card">
     <h3>Ajustes</h3>
     <label class="f">Ritmo-alvo da leitura (palavras por minuto)</label>
     <div class="pace"><button class="btn small ghost" onclick="setTarget(-10)">−</button><b id="target-lbl"></b><button class="btn small ghost" onclick="setTarget(10)">+</button></div>
-    <p class="faint" style="font-size:13px">110 é bem calmo, 130 é conversa tranquila, 150 já é ritmo de rádio.</p>
+    <p class="faint" style="font-size:13px">110 é bem calmo, 130 é conversa tranquila, 150 já é ritmo de rádio. Vale para o treino livre. Na trilha, cada unidade tem o seu ritmo.</p>
   </div>
 </section>
 
@@ -343,10 +370,129 @@ const DICAS = [
 
 const MULETAS = ["tipo","né","aí","então","assim","sabe","entendeu","basicamente","ééé","hum"];
 
+/* ===================== TRILHA DE 30 DIAS ===================== */
+MOLDES.push({nome:"Situação · Pedido · Motivo", passos:["A situação, em uma frase","O que você pede","Por que faz sentido"]});
+
+const UNIDADES = [
+  {id:'folego', nome:'Fôlego', emoji:'🫁', de:1, ate:7, foco:'Respirar baixo e desacelerar', pace:110, ciclos:5, pausa:1,
+   dicas:{breath:'Cinco ciclos nesta semana. É a base de tudo que vem depois.',
+          artic:'Respire antes de cada repetição. Uma respiração, uma frase.',
+          read:'Ritmo bem calmo, de propósito. Se sobrar ar no fim da frase, está certo.',
+          speak:'Antes da primeira palavra, uma respiração baixa. E outra a cada frase.',
+          listen:'Ouça só uma coisa hoje: dá pra perceber onde você respirou?'}},
+  {id:'pausa', nome:'Pausa', emoji:'⏸️', de:8, ate:14, foco:'Parar nas vírgulas e nos pontos', pace:120, ciclos:4, pausa:1.7,
+   dicas:{breath:'Repare no instante entre soltar e inspirar. É essa pausa que vai entrar na fala.',
+          artic:'Faça uma pausa clara entre uma repetição e a outra.',
+          read:'As paradas estão mais longas nesta semana. Em cada ponto azul, feche a boca e espere a marca.',
+          speak:'Depois de cada ideia, feche a boca e conte um. Só então continue.',
+          listen:'Ouça só uma coisa hoje: quantas pausas de verdade você fez?'}},
+  {id:'clareza', nome:'Clareza', emoji:'👄', de:15, ate:21, foco:'Articular sem correr', pace:130, ciclos:4, pausa:1.2,
+   dicas:{breath:'O ar sustenta a palavra até o fim. Solte devagar.',
+          artic:'Trava-língua mais longo. Devagar o quanto precisar: clareza antes de velocidade.',
+          read:'Termine cada palavra. O fim da palavra é o que mais some na pressa.',
+          speak:'Fale como quem explica pra alguém do outro lado da sala: boca aberta, palavra inteira.',
+          listen:'Ouça só uma coisa hoje: alguma palavra saiu engolida?'}},
+  {id:'estrutura', nome:'Estrutura', emoji:'🧱', de:22, ate:28, foco:'Saber o que falar', pace:130, ciclos:4, pausa:1.2,
+   dicas:{breath:'Enquanto respira, pense na primeira frase que você vai dizer hoje.',
+          artic:'Aquecimento rápido. O treino de hoje é na cabeça.',
+          read:'Repare como o texto de hoje se organiza: onde começa cada parte.',
+          speak:'Antes de gravar, decida a primeira frase. Depois siga o molde, um passo por vez.',
+          listen:'Ouça só uma coisa hoje: deu pra perceber o começo, o meio e o fim?'}},
+  {id:'fecho', nome:'Antes e depois', emoji:'🎧', de:29, ate:30, foco:'Ouvir o quanto mudou', pace:130, ciclos:4, pausa:1.2,
+   dicas:{breath:'Quatro ciclos, como no começo. Repare como ficou mais fácil.',
+          artic:'Devagar primeiro, depois no seu ritmo.',
+          read:'Leia como quem conta pra alguém.',
+          speak:'Respira, pausa, palavra inteira, molde. Tudo junto.',
+          listen:'Ouça inteiro antes de julgar.'}},
+];
+
+const D=(trava,texto,tema,molde,foco)=>({trava,texto,tema,molde,foco});
+const DIAS = [
+  /* ---------- 1. FÔLEGO ---------- */
+  D(TRAVAS[4], "Antes de falar, o corpo precisa de ar. Não o ar apressado do peito, mas o ar lento, que desce até a barriga. Experimente agora. Inspire devagar. Solte mais devagar ainda. Repare como os ombros descem. É desse lugar, calmo e cheio, que sai uma frase inteira.",
+    "Apresente-se: quem é você, o que você faz e do que você gosta", 1,
+    {speak:'Fale do seu jeito de hoje, sem caprichar. Essa gravação fica guardada no seu aparelho como o seu <b>antes</b>, e você ouve de novo no dia 30.'}),
+  D(TRAVAS[12], TEXTOS[2], "Um lugar onde você se sente em paz", 0),
+  D(TRAVAS[8], TEXTOS[4], "Descreva seu café da manhã ideal", 2),
+  D(TRAVAS[0], "A manhã na beira do rio começa em silêncio. A névoa sobe devagar, o barco balança de leve, e um sabiá canta num galho alto. Ninguém tem pressa. O pescador prepara a linha, senta e espera. O dia vai chegar de qualquer jeito. Melhor recebê-lo com calma.",
+    "Conte como foi seu dia até agora", 1),
+  D(TRAVAS[3], "Quem corre para falar chega cansado ao fim da frase. Falta ar, a voz afina, as últimas palavras somem. Quem respira antes chega inteiro. A diferença não está na garganta. Está no segundo de pausa, antes da primeira palavra, em que o ar entra sem pressa.",
+    "O que te deixa calmo quando o dia está pesado", 0),
+  D(TRAVAS[10], "Minha tia fazia pão aos domingos. Misturava a farinha, a água e o fermento, e depois deixava a massa descansar. Eu, criança, queria apressar. Ela ria e dizia que pão não cresce com pressa. Cresce com tempo. Hoje eu sei que muita coisa boa funciona assim.",
+    "Uma comida que te lembra a infância", 1),
+  D(TRAVAS[5], TEXTOS[0], "Descreva o lugar onde você está agora, como se fosse pra alguém no telefone", 2),
+  /* ---------- 2. PAUSA ---------- */
+  D(TRAVAS[2], "Vírgula é respiro. Ponto é descanso. Quem lê sem parar, atropela. Quem para no lugar certo, conduz. Leia esta frase, com calma, e sinta cada parada. Agora, a próxima. Percebeu? O texto é o mesmo. O que muda, de verdade, é o espaço entre as palavras.",
+    "Conte um passeio ou uma viagem que você fez", 1),
+  D(TRAVAS[7], TEXTOS[5], "Um erro que te ensinou algo", 3),
+  D(TRAVAS[1], "Primeiro, ela abriu a janela. Depois, pôs a água no fogo. Em seguida, sentou, respirou, e olhou a rua. Só então, sem pressa, começou a contar o que tinha acontecido. E todos, em silêncio, ouviram até o fim.",
+    "Como é a cidade onde você cresceu", 1),
+  D(TRAVAS[6], "Um bom contador de histórias sabe que o suspense mora na pausa. Ele diz: a porta abriu. E para. Todo mundo espera. Então, devagar, ele continua. Se tivesse dito tudo de uma vez, ninguém lembraria. Foi o silêncio, e não a palavra, que prendeu a sala.",
+    "Uma tradição da sua família", 2),
+  D(TRAVAS[13], TEXTOS[6], "O melhor presente que você já deu", 0),
+  D(TRAVAS[9], "Na feira, o vendedor mais calmo é o que mais vende. Ele não grita. Espera o freguês chegar, cumprimenta, e pergunta o que a pessoa procura. Depois, escuta. Por fim, mostra a fruta certa. Entre uma frase e outra, ele deixa um espaço. É nesse espaço que o freguês decide.",
+    "Uma história curta sobre um peixe", 3),
+  D(TRAVAS[11], "Antes de responder, pare. Um segundo basta. Nesse segundo, o ar entra, a ideia se organiza, e a primeira palavra aparece. Quem responde na hora, muitas vezes, se arrepende. Quem espera um instante, quase nunca. A pressa parece segurança, mas é só pressa.",
+    "Uma coisa que você aprendeu este ano", 0),
+  /* ---------- 3. CLAREZA ---------- */
+  D("O rato roeu a rica roupa do rei de Roma, e a rainha, de raiva, resolveu remendar.",
+    "Três trabalhadores trouxeram trinta tábuas para a obra. O primeiro empilhou, o segundo pregou, o terceiro pintou. Trabalho claro, cada um na sua parte. Com a fala é igual: cada sílaba tem o seu lugar. Quando todas aparecem, a frase fica firme, e quem ouve não precisa adivinhar.",
+    "Como fazer um café bom, passo a passo", 2),
+  D("Três tigres tristes para três pratos de trigo. Três pratos de trigo para três tigres tristes.",
+    "Abra bem a boca para as vogais. Deixe os lábios trabalharem no pê, no bê, no eme. Ponha a ponta da língua no tê e no dê. Parece exagero, e no treino é mesmo. Mas o exagero do treino vira clareza na conversa, sem que você precise pensar nisso.",
+    "Explique como se joga um jogo que você gosta", 2),
+  D("A aranha arranha a rã. A rã arranha a aranha. Nem a aranha arranha a rã, nem a rã arranha a aranha.",
+    "O professor explicou o problema com palavras precisas. Primeiro apresentou a pergunta, depois mostrou o processo, e por fim provou o resultado. Ninguém precisou pedir que repetisse. Não era a voz dele que era bonita. Era cada palavra, inteira, do começo ao fim.",
+    "Explique o que você faz, como se fosse pra uma criança de 10 anos", 2),
+  D("Num ninho de mafagafos há sete mafagafinhos. Quem os desmafagafizar, bom desmafagafizador será.",
+    TEXTOS[7], "Explique como funciona a chuva", 2),
+  D("Se o papa papasse papa, se o papa papasse pão, o papa tudo papava, seria o papa papão.",
+    "Brisa fresca, praia branca, um barco preso por uma corda grossa. O pescador trança a rede, prende o anzol, prepara a isca. Tudo é feito com as mãos e com atenção. A fala clara também é um trabalho manual, só que feito com a boca.",
+    "Explique uma regra de trânsito, como se fosse um professor", 0),
+  D("Em rápido rapto, um rápido rato raptou três ratos sem deixar rastros.",
+    "Palavra engolida é recado perdido. Quando o fim da palavra some, quem ouve completa por conta própria, e nem sempre acerta. Por isso, termine cada palavra. Pronuncie o erre, o esse, a última vogal. Dá um pouco mais de trabalho, e muda tudo.",
+    "Ensine o caminho da sua casa até a padaria mais próxima", 2),
+  D("O tempo perguntou pro tempo quanto tempo o tempo tem. O tempo respondeu pro tempo que o tempo tem tanto tempo quanto tempo o tempo tem.",
+    "A criança que aprende a falar repete devagar: bra, bre, bri, bro, bru. Depois tra, tre, tri, tro, tru. Ela não tem vergonha de exagerar, e por isso aprende depressa. O adulto pode fazer igual. A boca é um músculo, e músculo gosta de treino.",
+    "Convença alguém a experimentar sua fruta favorita", 0),
+  /* ---------- 4. ESTRUTURA ---------- */
+  D("Luzia lustrava o lustre listrado; o lustre listrado luzia.", TEXTOS[3],
+    "Na reunião, conte em que você está trabalhando", 2),
+  D("Caixa de graxa grossa de graça.",
+    "Eu acho que reunião curta é melhor. Porque as pessoas prestam mais atenção quando sabem que vai acabar logo. Na semana passada, resolvemos em quinze minutos o que antes levava uma hora. Por isso, sempre que posso, proponho reuniões curtas.",
+    "Dê sua opinião sobre uma ideia de um colega", 0),
+  D("Bote a bota no bote e tire o pote do bote.",
+    "Molde é um caminho pronto para a fala. Ele importa porque tira o medo do começo: você já sabe qual é o próximo passo. Para usar, é simples. Diga o que é. Diga por que importa. Diga como funciona. Três frases, e a ideia está de pé.",
+    "Peça mais prazo para terminar uma tarefa", 4),
+  D("Larga a tia, lagartixa! Lagartixa, larga a tia!",
+    "Antes, eu começava a falar sem saber onde ia chegar. Hoje, escolho um molde e sigo por ele. Daqui a um tempo, espero não precisar mais pensar nisso. É assim com tudo que se aprende: primeiro é esforço, depois é hábito, por fim é jeito.",
+    "Conte como um projeto seu mudou do começo até hoje", 1),
+  D("A vaca malhada foi molhada por outra vaca molhada e malhada.",
+    "O problema era simples: ninguém entendia os meus recados. Tentei escrever mais, e ficou pior. Então tentei o contrário: uma ideia por frase, e o pedido logo no começo. Deu certo. Hoje as respostas chegam mais rápido, e quase nunca me perguntam o que eu quis dizer.",
+    "Conte um problema que você resolveu", 3),
+  D("Atrás da pia tem um prato, um pinto e um gato. Pinga a pia, apara o prato, pia o pinto e mia o gato.",
+    "Quando chegar a sua vez de falar na reunião, não comece pelo detalhe. Comece pelo ponto: o que você quer que as pessoas saibam. Depois dê o motivo, e um exemplo. Termine repetindo o ponto. Leva menos de um minuto, e todo mundo sai sabendo o que você pensa.",
+    "Discorde de alguém com respeito", 0),
+  D("O doce perguntou pro doce qual é o doce mais doce. O doce respondeu pro doce que o doce mais doce é o doce de batata-doce.",
+    TEXTOS[1], "Por que devemos escolher você para essa vaga?", 0),
+  /* ---------- ANTES E DEPOIS ---------- */
+  D("Sabendo o que sei e sabendo o que sabes, saberemos se somos sábios ou só sabidos.",
+    "Você treinou o fôlego, a pausa, a clareza e a estrutura. Hoje, junte tudo. Respire antes de começar. Pare nas vírgulas. Termine cada palavra. Siga um molde. Não precisa sair perfeito. Precisa sair seu, com calma, do começo ao fim.",
+    "Dê um conselho para quem está começando a treinar a fala", 0,
+    {speak:'Ensaio geral: respira, pausa, palavra inteira, molde. Tudo junto.'}),
+  D(TRAVAS[5], "Trinta treinos atrás, você gravou a sua voz e guardou. Hoje vai gravar de novo, sobre o mesmo assunto. Depois, vai ouvir as duas, uma depois da outra. Preste atenção no ritmo, nas pausas, no fim das frases. A diferença é sua. Foi você quem apareceu, dia após dia.",
+    null, 1,
+    {speak:'O mesmo tema do dia 1. Fale do jeito que você fala hoje.',
+     listen:'Ouça o antes inteiro. Depois o agora. Sem pressa, e com carinho por quem gravou o primeiro.'}),
+];
+// o treino livre também ganha o conteúdo novo dos dias 1 a 28
+DIAS.slice(0,28).forEach(d=>{ if(!TEXTOS.includes(d.texto))TEXTOS.push(d.texto); if(!TRAVAS.includes(d.trava))TRAVAS.push(d.trava); });
+
 /* ===================== ESTADO ===================== */
 const KEY='fala_save';
 let S = load();
-function load(){ try{ const s=JSON.parse(localStorage.getItem(KEY)||'{}'); return Object.assign({entries:[],days:{},target:130},s);}catch(e){return {entries:[],days:{},target:130}} }
+function load(){ let s; try{ s=Object.assign({entries:[],days:{},target:130},JSON.parse(localStorage.getItem(KEY)||'{}')); }catch(e){ s={entries:[],days:{},target:130}; }
+  if(!s.trail||typeof s.trail.day!=='number')s.trail=newTrail(); return s; }
 function save(){ try{ localStorage.setItem(KEY,JSON.stringify(S)); }catch(e){} }
 
 const pad=n=>String(n).padStart(2,'0');
@@ -356,6 +502,60 @@ function pick(arr,off=0){ return arr[(daySeed()+off)%arr.length]; }
 function weekDays(){ // segunda..domingo da semana atual
   const d=new Date(); const dow=(d.getDay()+6)%7; const mon=new Date(d); mon.setDate(d.getDate()-dow);
   return [...Array(7)].map((_,i)=>{const x=new Date(mon); x.setDate(mon.getDate()+i); return x;});
+}
+
+/* ===================== TRILHA: ESTADO E GRAVAÇÕES ===================== */
+function newTrail(){ return {day:1,last:null,tema1:null,antes:null,depois:null}; }
+function unitOf(n){ return UNIDADES.find(u=>n>=u.de&&n<=u.ate)||UNIDADES[UNIDADES.length-1]; }
+function trailDoneToday(){ return S.trail.last===dkey(); }
+function trailN(){ return trailDoneToday()?S.trail.day-1:S.trail.day; }   // o dia a treinar agora
+function temaDoDia(n){ return n===30?(S.trail.tema1||DIAS[0].tema):DIAS[n-1].tema; }
+function focoHTML(step){ if(!session||!session.trilha)return ''; const u=unitOf(session.trilha); const t=(DIAS[session.trilha-1].foco||{})[step]||u.dicas[step]; return t?`<div class="foco"><b>🎯 ${u.nome}:</b> ${t}</div>`:''; }
+
+// as únicas gravações guardadas: a do dia 1 e a do dia 30, só neste aparelho
+function idb(){ return new Promise((res,rej)=>{ try{ const r=indexedDB.open('vozi',1); r.onupgradeneeded=()=>r.result.createObjectStore('audio'); r.onsuccess=()=>res(r.result); r.onerror=()=>rej(r.error); }catch(e){ rej(e); } }); }
+async function idbPut(k,v){ try{ const db=await idb(); return await new Promise((res,rej)=>{ const t=db.transaction('audio','readwrite'); t.objectStore('audio').put(v,k); t.oncomplete=()=>res(true); t.onerror=()=>rej(t.error); t.onabort=()=>rej(t.error); }); }catch(e){ return false; } }
+async function idbGet(k){ try{ const db=await idb(); return await new Promise((res,rej)=>{ const q=db.transaction('audio').objectStore('audio').get(k); q.onsuccess=()=>res(q.result||null); q.onerror=()=>rej(q.error); }); }catch(e){ return null; } }
+async function idbDel(k){ try{ const db=await idb(); db.transaction('audio','readwrite').objectStore('audio').delete(k); }catch(e){} }
+function saveAudio(k,blob){ blob.arrayBuffer().then(buf=>idbPut(k,{buf,type:blob.type})).then(ok=>{ if(!ok&&S.trail[k]){ S.trail[k].audio=false; save(); } }).catch(()=>{}); }
+async function audioUrl(k){ const a=await idbGet(k); return a&&a.buf?URL.createObjectURL(new Blob([a.buf],{type:a.type||'audio/webm'})):null; }
+
+// antes (dia 1) e depois (dia 30), lado a lado
+async function renderBA(el,nowUrl){
+  if(!el)return; const T=S.trail; const aUrl=await audioUrl('antes'); const dUrl=nowUrl||await audioUrl('depois');
+  if(!el.isConnected)return;
+  const m=x=>x&&x.ppm?` <span>· ${x.ppm} ppm · ${x.fillers} muletas</span>`:'';
+  el.innerHTML=`<div class="ba">
+    <div><div class="lab">Antes · dia 1${m(T.antes)}</div>${aUrl?`<audio controls src="${aUrl}" preload="metadata" data-ba="antes"></audio>`:'<p class="faint" style="font-size:13px;margin:4px 0">A gravação do dia 1 não ficou guardada neste aparelho.</p>'}</div>
+    <div><div class="lab">${nowUrl?'Agora':'Depois'} · dia 30${nowUrl?'':m(T.depois)}</div>${dUrl?`<audio controls src="${dUrl}" preload="metadata" data-ba="depois"></audio>`:'<p class="faint" style="font-size:13px;margin:4px 0">Sem gravação do dia 30.</p>'}</div>
+  </div>`;
+}
+function restartTrail(){ if(confirm('Recomeçar a trilha do dia 1? O diário continua. As gravações de antes e depois são apagadas.')){ S.trail=newTrail(); save(); idbDel('antes'); idbDel('depois'); renderHome(); } }
+
+function renderTrailCard(){
+  const el=document.getElementById('home-trail'), T=S.trail, next=T.day, livre=document.getElementById('home-livre');
+  const path=`<div class="trail">`+UNIDADES.map(u=>{ const len=u.ate-u.de+1; const st=next>u.ate?'done':next>=u.de?'cur':'locked';
+    const dots=[...Array(len)].map((_,i)=>{ const d=u.de+i; if(d<next)return `<div class="dot done" title="dia ${d} feito">✓</div>`; if(d===next)return `<div class="dot cur" title="você está no dia ${d}"><img src="assets/vozi-base.png" alt="Vozi no dia ${d}"></div>`; return `<div class="dot">${d}</div>`; }).join('');
+    return `<div class="unit ${st}"><div class="uh"><span>${u.emoji} ${u.nome}</span><small>${st==='done'?'fechada ✓':'dias '+u.de+'–'+u.ate}</small></div><div class="dots" style="grid-template-columns:repeat(${len},1fr);width:calc(100% * ${len} / 7)">${dots}</div></div>`; }).join('')+`</div>`;
+  if(next>30){
+    livre.style.display='none';
+    el.innerHTML=`<div class="row spread"><h3 style="margin:0">Trilha completa</h3><span class="faint" style="font-size:13px">30 de 30</span></div>
+      <p>Trinta treinos. Ouça de onde você saiu e onde chegou.</p><div id="ba-home"></div>
+      <button class="btn primary" id="btn-start" onclick="startTraining('livre')">${S.days[dkey()]?'Treinar de novo':'Treino de hoje'}</button>
+      <p class="muted" style="font-size:14px;margin-top:8px">Tema de hoje: <b class="gold">${pick(TEMAS)}</b></p>
+      ${path}<div style="text-align:center;margin-top:6px"><button class="btn ghost small" style="display:inline-flex" onclick="restartTrail()">Recomeçar a trilha</button></div>`;
+    renderBA(document.getElementById('ba-home')); return;
+  }
+  livre.style.display='';
+  const n=trailN(), u=unitOf(n);
+  const top=trailDoneToday()
+    ? `<p class="tday"><b>Dia ${n} feito ✓</b></p><p>O dia ${n+1} abre amanhã. Descansar também é treino.</p>
+       <button class="btn ghost" id="btn-start" onclick="startTraining('trilha')">Treinar o dia ${n} de novo</button>`
+    : `<p class="tday"><b>Dia ${n} · ${u.emoji} ${u.nome}</b> <span class="faint">· ~5 min</span></p><p>${u.foco}.</p>
+       <p class="muted">Tema: <b class="gold">${temaDoDia(n)}</b></p><div style="height:8px"></div>
+       <button class="btn primary" id="btn-start" onclick="startTraining('trilha')">${n===1?'Começar a trilha':'Começar o dia '+n}</button>`;
+  el.innerHTML=`<div class="row spread"><h3 style="margin:0">Trilha de 30 dias</h3><span class="faint" style="font-size:13px">${next-1} de 30</span></div>${top}${path}
+    <p class="faint" style="font-size:13px;margin-top:10px">O dia avança quando você treina, não quando o calendário anda.</p>`;
 }
 
 /* ===================== NAVEGAÇÃO ===================== */
@@ -374,9 +574,9 @@ function renderHome(){
   const ppms=S.entries.filter(e=>e.ppm).slice(-5).map(e=>e.ppm);
   document.getElementById('st-ppm').textContent=ppms.length?Math.round(ppms.reduce((a,b)=>a+b,0)/ppms.length)+' ppm':'—';
   const w=weekDays(); document.getElementById('weeklabel').textContent=`${pad(w[0].getDate())}/${pad(w[0].getMonth()+1)} – ${pad(w[6].getDate())}/${pad(w[6].getMonth()+1)}`;
-  document.getElementById('home-topic').innerHTML=`Tema de hoje: <b class="gold">${pick(TEMAS)}</b>`;
+  document.getElementById('home-topic').innerHTML=`Tema sorteado de hoje: <b class="gold">${pick(TEMAS)}</b>`;
+  renderTrailCard();
   document.getElementById('home-tip').innerHTML=pick(DICAS);
-  document.getElementById('btn-start').textContent=S.days[dkey()]?'Treinar de novo':'Começar';
 }
 
 /* ===================== TIMER ===================== */
@@ -392,8 +592,12 @@ function runRing(id,secs,onDone){
 /* ===================== TREINO ===================== */
 const STEPS=['breath','artic','read','speak','listen'];
 let cur=0, session=null;
-function startTraining(){
-  cur=0; session={date:dkey(),tema:pick(TEMAS),molde:pick(MOLDES,3),trava:pick(TRAVAS),texto:pick(TEXTOS),blob:null,url:null,words:0,secs:0,fillers:0,ratings:{},notes:{}};
+function startTraining(mode){
+  cur=0; const base={date:dkey(),blob:null,url:null,words:0,secs:0,fillers:0,ratings:{},notes:{}}; const n=trailN();
+  if(mode==='trilha'&&n>=1&&n<=30){ const d=DIAS[n-1], u=unitOf(n);
+    session=Object.assign(base,{trilha:n,replay:trailDoneToday(),unidade:u.id,tema:temaDoDia(n),molde:MOLDES[d.molde],trava:d.trava,texto:d.texto,pace:u.pace,pausa:u.pausa,ciclos:u.ciclos});
+  } else session=Object.assign(base,{tema:pick(TEMAS),molde:pick(MOLDES,3),trava:pick(TRAVAS),texto:pick(TEXTOS),pace:S.target,pausa:1,ciclos:4});
+  document.getElementById('t-head').childNodes[0].nodeValue=session.trilha?`Dia ${session.trilha} · ${unitOf(session.trilha).nome} `:'Treino ';
   go('s-train'); renderStep();
 }
 function quitTraining(){ stopTimer(); stopReading(); stopRecording(true); go('s-home'); renderHome(); }
@@ -407,24 +611,24 @@ function renderStep(){
 
 /* --- 1. respira --- */
 function renderBreath(el){
-  el.innerHTML=`<img class="mascot" src="assets/vozi-respira.png" alt="Vozi respirando"><h2 class="steptitle">🫁 Respira</h2><p class="stepsub">Mão na barriga. O ar entra pelo nariz e empurra a mão pra fora. Quatro ciclos.</p>
+  el.innerHTML=`<img class="mascot" src="assets/vozi-respira.png" alt="Vozi respirando"><h2 class="steptitle">🫁 Respira</h2><p class="stepsub">Mão na barriga. O ar entra pelo nariz e empurra a mão pra fora. ${session.ciclos===5?'Cinco':'Quatro'} ciclos.</p>${focoHTML('breath')}
   <div class="breath"><div class="orb" id="orb"></div><div class="lbl" id="blbl">Pronto?<small>começa em 2s</small></div></div>
-  <div class="row" style="justify-content:center;gap:16px" id="bcount"><span class="faint">ciclo 1 de 4</span></div>
+  <div class="row" style="justify-content:center;gap:16px" id="bcount"><span class="faint">ciclo 1 de ${session.ciclos}</span></div>
   <div style="height:16px"></div><button class="btn primary" onclick="next()">Próximo</button>`;
   const orb=document.getElementById('orb'), lbl=document.getElementById('blbl'), cnt=document.getElementById('bcount');
   const phases=[['in','Inspira',4],['hold','Segura',2],['out','Solta',6]]; let cyc=0, ph=0, left=0; let tickCount=0;
-  stopTimer();
-  setTimeout(()=>{ if(STEPS[cur]!=='breath')return;
-    const setPhase=()=>{ const [cls,txt,s]=phases[ph]; orb.className='orb '+cls; left=s; lbl.innerHTML=`${txt}<small>${left}</small>`; cnt.innerHTML=`<span class="faint">ciclo ${cyc+1} de 4</span>`; };
+  stopTimer(); const N=session.ciclos||4, mine=session;
+  setTimeout(()=>{ if(STEPS[cur]!=='breath'||session!==mine||!document.getElementById('s-train').classList.contains('on'))return;
+    const setPhase=()=>{ const [cls,txt,s]=phases[ph]; orb.className='orb '+cls; left=s; lbl.innerHTML=`${txt}<small>${left}</small>`; cnt.innerHTML=`<span class="faint">ciclo ${cyc+1} de ${N}</span>`; };
     setPhase();
     timer=setInterval(()=>{ left--; if(left>0){ lbl.querySelector('small').textContent=left; return; }
-      ph++; if(ph>=phases.length){ph=0;cyc++;} if(cyc>=4){ stopTimer(); orb.className='orb'; lbl.innerHTML=`Boa.<small>a voz vem daqui</small>`; cnt.innerHTML=''; return; } setPhase(); },1000);
+      ph++; if(ph>=phases.length){ph=0;cyc++;} if(cyc>=N){ stopTimer(); orb.className='orb'; lbl.innerHTML=`Boa.<small>a voz vem daqui</small>`; cnt.innerHTML=''; return; } setPhase(); },1000);
   },2000);
 }
 
 /* --- 2. articula --- */
 function renderArtic(el){
-  el.innerHTML=`<h2 class="steptitle">👄 Articula</h2><p class="stepsub">Fale <b>bem devagar</b>, exagerando cada sílaba, três vezes. Depois duas vezes no ritmo normal. Boca grande, sem vergonha.</p>
+  el.innerHTML=`<h2 class="steptitle">👄 Articula</h2><p class="stepsub">Fale <b>bem devagar</b>, exagerando cada sílaba, três vezes. Depois duas vezes no ritmo normal. Boca grande, sem vergonha.</p>${focoHTML('artic')}
   <div class="frase" id="trava">${session.trava}</div>
   <div style="height:14px"></div>${ringHTML('r-artic','segundos')}
   <div class="row"><button class="btn ghost small" onclick="otherTrava()">Outra frase</button><button class="btn primary" onclick="next()">Próximo</button></div>`;
@@ -436,14 +640,16 @@ function otherTrava(){ const i=TRAVAS.indexOf(session.trava); session.trava=TRAV
 let rd={t:null,i:0,words:[],playing:false};
 function renderRead(el){
   const words=session.texto.split(/\s+/);
-  el.innerHTML=`<h2 class="steptitle">📖 Lê no ritmo</h2><p class="stepsub">Leia em voz alta acompanhando a marca. Onde aparece <span style="color:var(--calm);font-weight:900">·</span>, pare um instante. Não corra atrás dela. Deixe ela te puxar.</p>
-  <div class="pace"><button class="btn small ghost" onclick="setTarget(-10);paceLbl()">−</button><b id="pace-lbl"></b><button class="btn small ghost" onclick="setTarget(10);paceLbl()">+</button></div>
+  el.innerHTML=`<h2 class="steptitle">📖 Lê no ritmo</h2><p class="stepsub">Leia em voz alta acompanhando a marca. Onde aparece <span style="color:var(--calm);font-weight:900">·</span>, pare um instante. Não corra atrás dela. Deixe ela te puxar.</p>${focoHTML('read')}
+  <div class="pace"><button class="btn small ghost" onclick="bumpPace(-10)">−</button><b id="pace-lbl"></b><button class="btn small ghost" onclick="bumpPace(10)">+</button></div>
   <div class="reader" id="reader">${words.map((w,i)=>`<span data-i="${i}" class="${/[,.;:!?…]$/.test(w)?'pz':''}">${w}</span>`).join(' ')}</div>
   <p class="muted" id="read-msg" style="text-align:center;min-height:22px;font-size:14px"></p>
   <div class="row"><button class="btn ghost" id="read-btn" onclick="toggleReading()">▶ Começar</button><button class="btn primary" onclick="next()">Próximo</button></div>`;
   rd={t:null,i:0,words,playing:false}; paceLbl();
 }
-function paceLbl(){ const l=document.getElementById('pace-lbl'); if(l)l.textContent=`${S.target} palavras/min`; }
+function pace(){ return (session&&session.pace)||S.target; }
+function bumpPace(d){ if(session&&session.trilha)session.pace=Math.max(90,Math.min(180,session.pace+d)); else{ setTarget(d); if(session)session.pace=S.target; } paceLbl(); }
+function paceLbl(){ const l=document.getElementById('pace-lbl'); if(l)l.textContent=`${pace()} palavras/min`; }
 function toggleReading(){ if(rd.playing){stopReading(); document.getElementById('read-btn').textContent='▶ Continuar';} else startReading(); }
 function startReading(){
   rd.playing=true; document.getElementById('read-btn').textContent='⏸ Pausar'; document.getElementById('read-msg').textContent='';
@@ -452,7 +658,7 @@ function startReading(){
     if(rd.i>0){spans[rd.i-1].classList.remove('cur');spans[rd.i-1].classList.add('did');}
     if(rd.i>=rd.words.length){ rd.playing=false; document.getElementById('read-btn').textContent='↻ De novo'; document.getElementById('read-msg').textContent='Boa. Agora leia uma vez sem a marca, no mesmo ritmo.'; return; }
     const w=rd.words[rd.i]; spans[rd.i].classList.add('cur'); spans[rd.i].scrollIntoView({block:'nearest'});
-    let ms=60000/S.target; if(/[,;:]$/.test(w))ms+=320; if(/[.!?…]$/.test(w))ms+=650; if(w.length>9)ms*=1.25;
+    const pm=(session&&session.pausa)||1; let ms=60000/pace(); if(w.length>9)ms*=1.25; if(/[,;:]$/.test(w))ms+=320*pm; if(/[.!?…]$/.test(w))ms+=650*pm;
     rd.i++; rd.t=setTimeout(tick,ms); };
   tick();
 }
@@ -464,13 +670,13 @@ function renderTarget(){ const l=document.getElementById('target-lbl'); if(l)l.t
 let rec={mr:null,stream:null,chunks:[],sr:null,start:0,active:false,words:0,fillers:0};
 function renderSpeak(el){
   const m=session.molde;
-  el.innerHTML=`<img class="mascot" src="assets/vozi-ouvindo.png" alt="Vozi ouvindo"><h2 class="steptitle">🎙️ Fala livre</h2><p class="stepsub">O Vozi quer ouvir. Um minuto sobre o tema, seguindo o molde. Pausar é permitido. Silêncio não é erro. Terminar antes do tempo também não.</p>
+  el.innerHTML=`<img class="mascot" src="assets/vozi-ouvindo.png" alt="Vozi ouvindo"><h2 class="steptitle">🎙️ Fala livre</h2><p class="stepsub">O Vozi quer ouvir. Um minuto sobre o tema, seguindo o molde. Pausar é permitido. Silêncio não é erro. Terminar antes do tempo também não.</p>${focoHTML('speak')}
   <div class="frase">${session.tema}</div>
   <p class="faint" style="text-align:center;font-size:13px;margin:12px 0 2px">molde: <b class="gold">${m.nome}</b> · toque pra marcar onde está</p>
   <div class="chips">${m.passos.map((p,i)=>`<button class="chip gold" onclick="this.classList.toggle('on')">${i+1}. ${p}</button>`).join('')}</div>
   ${ringHTML('r-speak','segundos')}
   <div class="rec" id="recstat"></div>
-  <div class="row"><button class="btn ghost small" onclick="otherTema()" id="btn-tema">Outro tema</button><button class="btn primary" id="btn-rec" onclick="beginSpeak()">🎙️ Diz aí</button></div>
+  <div class="row"><button class="btn ghost small" onclick="otherTema()" id="btn-tema" ${session.trilha===1||session.trilha===30?'style="display:none"':''}>Outro tema</button><button class="btn primary" id="btn-rec" onclick="beginSpeak()">🎙️ Diz aí</button></div>
   <p class="warn">O microfone é pedido só agora, e o áudio não sai do seu aparelho.</p>`;
   document.getElementById('r-speak').querySelector('.num span').textContent='60';
 }
@@ -521,8 +727,8 @@ async function endSpeak(){
 function renderListen(el){
   const s=session; let zona='';
   if(s.ppm){ zona=s.ppm>165?'<span style="color:var(--warm)">acelerado</span>':s.ppm<115?'<span style="color:var(--calm)">bem calmo</span>':'<span style="color:var(--ok)">ritmo de conversa</span>'; }
-  el.innerHTML=`<img class="mascot" src="assets/vozi-ouvindo.png" alt="Vozi ouvindo"><h2 class="steptitle">👂 Reescuta</h2><p class="stepsub">Ouça uma vez inteira antes de julgar. Depois responda com honestidade e gentileza, como falaria de um amigo.</p>
-  ${s.url?`<audio controls src="${s.url}" preload="auto"></audio>`:`<p class="faint" style="text-align:center">Sem gravação desta vez. Avalie pela sensação.</p>`}
+  el.innerHTML=`<img class="mascot" src="assets/vozi-ouvindo.png" alt="Vozi ouvindo"><h2 class="steptitle">👂 Reescuta</h2><p class="stepsub">Ouça uma vez inteira antes de julgar. Depois responda com honestidade e gentileza, como falaria de um amigo.</p>${focoHTML('listen')}
+  ${s.trilha===30?'<div id="ba-listen"></div>':s.url?`<audio controls src="${s.url}" preload="auto"></audio>`:`<p class="faint" style="text-align:center">Sem gravação desta vez. Avalie pela sensação.</p>`}
   <div class="metrics">
     <div class="stat"><b>${s.secs||'—'}s</b><span>falou por</span></div>
     <div class="stat"><b>${s.ppm||'—'}</b><span>${s.ppm?'ppm · '+zona:'palavras/min'}</span></div>
@@ -535,18 +741,36 @@ function renderListen(el){
   <label class="f">Uma coisa que foi bem</label><textarea id="n-bem" placeholder="ex.: terminei as frases"></textarea>
   <label class="f">Uma coisa pra amanhã</label><textarea id="n-amanha" placeholder="ex.: pausar na vírgula"></textarea>
   <div style="height:14px"></div><button class="btn primary" onclick="saveSession()">Salvar e fechar o dia</button>`;
+  if(s.trilha===30)renderBA(document.getElementById('ba-listen'),s.url||null);
 }
 function rateHTML(k,lab,opts){ return `<div class="rate"><div class="lab">${lab}</div><div class="opts">${opts.map((o,i)=>`<button onclick="rate('${k}',${i},this)"><b>${o[0]}</b>${o[1]}</button>`).join('')}</div></div>`; }
 function rate(k,i,btn){ session.ratings[k]=i; btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('on')); btn.classList.add('on'); }
 function saveSession(){
   session.notes={bem:document.getElementById('n-bem').value.trim(),amanha:document.getElementById('n-amanha').value.trim()};
-  const {blob,url,...entry}=session; entry.ts=Date.now(); S.entries.push(entry); S.days[session.date]=true; save(); finish();
+  const {blob,url,...entry}=session; entry.ts=Date.now(); S.entries.push(entry); S.days[session.date]=true;
+  let fx=null;
+  if(session.trilha){ const n=session.trilha, T=S.trail, avanca=!trailDoneToday()&&n===T.day;
+    const meta={ppm:session.ppm||null,fillers:session.fillers||0,secs:session.secs||0,date:session.date,audio:!!blob};
+    if(n===1&&(avanca||(blob&&!(T.antes&&T.antes.audio)))){ T.antes=meta; T.tema1=session.tema; if(blob)saveAudio('antes',blob); }
+    if(n===30&&(avanca||blob)){ T.depois=meta; if(blob)saveAudio('depois',blob); }
+    if(avanca){ T.day=n+1; T.last=session.date; }
+    fx={n,avanca,fechou:avanca&&[7,14,21,28].includes(n),completa:avanca&&n===30};
+  }
+  save(); finish(fx);
 }
-function finish(){
-  stopTimer(); if(session&&session.url){ /* mantém até sair da tela */ }
+function finish(fx){
+  stopTimer();
   renderWeek(document.getElementById('week-done'));
   const n=Object.keys(S.days).length; const wk=weekDays().filter(d=>S.days[dkey(d)]).length;
   const msgs=[`Treino nº ${n}. ${wk} de 7 nesta semana.`, n===1?'Primeiro de muitos. O mais difícil era começar.':'', wk===7?'Semana completa. Isso é raro, e você fez.':''].filter(Boolean);
+  let h='Dia marcado', sub='o Vozi ouviu. Você falou, e é isso que conta.';
+  if(fx){
+    if(fx.completa){ h='Trilha completa'; sub='trinta treinos. Foi você quem apareceu.'; msgs.unshift('Na tela inicial ficam o seu antes e o seu depois, pra ouvir quando quiser.'); }
+    else if(fx.fechou){ const u=unitOf(fx.n), p=unitOf(fx.n+1); h=`Unidade ${u.nome} fechada`; sub=`dia ${fx.n} de 30. O Vozi está orgulhoso.`; msgs.unshift(`A seguir: <b>${p.emoji} ${p.nome}</b>. ${p.foco}.`); }
+    else if(fx.avanca){ msgs.unshift(`Trilha: dia ${fx.n} de 30 feito.`); if(fx.n===1&&S.trail.antes&&S.trail.antes.audio)msgs.push('Sua gravação de hoje ficou guardada como o seu "antes".'); }
+    else msgs.unshift(`Dia ${fx.n} treinado de novo. A trilha segue amanhã.`);
+  }
+  document.getElementById('done-h').innerHTML=`${h} <small>${sub}</small>`;
   document.getElementById('done-msg').innerHTML=msgs.join('<br>');
   document.getElementById('done-tip').innerHTML=pick(DICAS,5);
   go('s-done');
@@ -558,16 +782,16 @@ function renderDiary(){
   const el=document.getElementById('diario'); const es=[...S.entries].reverse();
   if(!es.length){ el.innerHTML='<p class="muted">Ainda vazio. O primeiro treino escreve a primeira linha.</p>'; return; }
   el.innerHTML=es.map(e=>{ const d=new Date(e.ts); const r=Object.keys(R).map(k=>e.ratings&&e.ratings[k]!=null?R[k][e.ratings[k]]:'·').join(' ');
-    return `<div class="entry"><div class="d">${pad(d.getDate())}/${pad(d.getMonth()+1)}/${d.getFullYear()} · ${r}</div><div class="t">${e.tema}</div>
+    return `<div class="entry"><div class="d">${pad(d.getDate())}/${pad(d.getMonth()+1)}/${d.getFullYear()} · ${r}${e.trilha?' · trilha, dia '+e.trilha:''}</div><div class="t">${e.tema}</div>
     <div class="m">${e.secs?e.secs+'s':''}${e.ppm?' · '+e.ppm+' ppm · '+e.fillers+' muletas':''}</div>
     ${e.notes&&(e.notes.bem||e.notes.amanha)?`<div class="n">${e.notes.bem?'✅ '+esc(e.notes.bem):''}${e.notes.bem&&e.notes.amanha?'\n':''}${e.notes.amanha?'🎯 '+esc(e.notes.amanha):''}</div>`:''}</div>`; }).join('');
 }
 function esc(s){ return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
 function copyDiary(){
-  const txt=[...S.entries].reverse().map(e=>{const d=new Date(e.ts); return `${pad(d.getDate())}/${pad(d.getMonth()+1)}/${d.getFullYear()} — ${e.tema}${e.ppm?` — ${e.ppm} ppm, ${e.fillers} muletas`:''}\n  bem: ${e.notes?.bem||'-'}\n  amanhã: ${e.notes?.amanha||'-'}`;}).join('\n\n');
+  const txt=[...S.entries].reverse().map(e=>{const d=new Date(e.ts); return `${pad(d.getDate())}/${pad(d.getMonth()+1)}/${d.getFullYear()}${e.trilha?' (trilha, dia '+e.trilha+')':''} — ${e.tema}${e.ppm?` — ${e.ppm} ppm, ${e.fillers} muletas`:''}\n  bem: ${e.notes?.bem||'-'}\n  amanhã: ${e.notes?.amanha||'-'}`;}).join('\n\n');
   navigator.clipboard?.writeText(txt).then(()=>alert('Diário copiado.')).catch(()=>prompt('Copie:',txt));
 }
-function clearAll(){ if(confirm('Apagar todo o diário e a trilha? Não dá pra desfazer.')){ S={entries:[],days:{},target:S.target}; save(); renderDiary(); renderHome(); } }
+function clearAll(){ if(confirm('Apagar o diário, a sequência da semana e o progresso da trilha de 30 dias? Não dá pra desfazer.')){ S={entries:[],days:{},target:S.target,trail:newTrail()}; save(); idbDel('antes'); idbDel('depois'); renderDiary(); renderHome(); } }
 
 /* ===================== BOOT ===================== */
 renderHome(); renderTarget();

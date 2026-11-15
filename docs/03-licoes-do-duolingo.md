@@ -87,13 +87,19 @@ Hoje o conteúdo é sorteado pela data. A trilha troca o sorteio por progressão
 
 Regras da trilha, na filosofia da casa: o dia da trilha avança quando a pessoa treina, não quando o calendário anda. Quem falta três dias volta no mesmo ponto. Nada zera.
 
-**A trilha cabe no protótipo atual**, sem servidor. É a próxima coisa a construir quando a etapa 0 trouxer a lista de incômodos do uso real.
+**Construída em 15/11/2026**, no protótipo, sem servidor. O que ficou diferente do esboço:
+
+- **Um dia de trilha por dia de calendário.** No mesmo dia dá para repetir o dia feito ou fazer um treino livre, mas o dia seguinte só abre amanhã. Prática espaçada funciona melhor do que maratona.
+- **Ritmo da leitura por unidade:** 110 palavras por minuto no Fôlego, 120 na Pausa, 130 na Clareza e na Estrutura. Na Pausa, as paradas em vírgulas e pontos ficam mais longas.
+- **Um foco por passo.** Cada unidade muda a orientação dos cinco passos, e não só o conteúdo.
+- **Gravações guardadas:** a do dia 1 e a do dia 30 ficam no aparelho, e só elas. Se o navegador não deixar guardar, o app avisa no dia 30 em vez de quebrar.
+- **Conteúdo novo:** 30 textos, 29 temas e 14 trava-línguas a mais. Os dos dias 1 a 28 também entram no sorteio do treino livre.
 
 ## O que muda no plano
 
 - [x] Decisão: ligas por esforço entram no produto (v1)
 - [x] Doc 01 revisto (auditoria de gatilhos, monetização, v1)
-- [ ] Trilha de 30 dias no protótipo (próxima construção, após a etapa 0)
+- [x] Trilha de 30 dias no protótipo (construída em 15/11/2026, a pedido do fundador)
 - [ ] Ligas + pontos + premiação interna (v1, após a etapa 3)
 - [ ] Revoada, a sala de apresentação, depois das ligas ([04-revoada.md](04-revoada.md))
 - [ ] Consulta jurídica sobre premiação externa (antes de anunciar qualquer prêmio)
