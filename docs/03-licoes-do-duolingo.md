@@ -44,7 +44,7 @@ Referência de impacto: Jorge Mazal, ex-diretor de produto do Duolingo, relatou 
 | Subida | Os primeiros sobem de liga | Progresso de longo prazo |
 | Descida | Quem fica embaixo permanece; rebaixa só após 2 semanas sem treinar | Sem aviso vermelho, sem humilhação |
 | Participação | Opcional, com apelido e o sabiá da pessoa | Autonomia e privacidade |
-| Áudio | Nunca exposto a outros usuários | A gravação é de quem gravou |
+| Áudio | Nas ligas, nunca exposto. Na Revoada, só é ouvido por outros quando a pessoa escolhe mandar (doc 04) | A gravação é de quem gravou |
 
 **Pontuação inicial (proposta, a calibrar com uso):** 10 pontos por treino completo, 1 ponto por cada 10 segundos de fala livre, 20 pontos por fechar uma unidade.
 
@@ -95,4 +95,5 @@ Regras da trilha, na filosofia da casa: o dia da trilha avança quando a pessoa 
 - [x] Doc 01 revisto (auditoria de gatilhos, monetização, v1)
 - [ ] Trilha de 30 dias no protótipo (próxima construção, após a etapa 0)
 - [ ] Ligas + pontos + premiação interna (v1, após a etapa 3)
+- [ ] Revoada, a sala de apresentação, depois das ligas ([04-revoada.md](04-revoada.md))
 - [ ] Consulta jurídica sobre premiação externa (antes de anunciar qualquer prêmio)

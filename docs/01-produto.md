@@ -59,6 +59,7 @@ Medo de falar é um dos medos mais comuns que existem. A versão cotidiana dele 
 | Recompensa variável | Tema e molde do dia são uma pequena surpresa | Loot, moedas, gacha (não cabe aqui) |
 | Identidade | "Sou alguém que treina a voz todo dia" | Comparar quem fala melhor; expor áudio de alguém |
 | Pertencimento e competição leve | Ligas semanais por esforço: opcionais, com apelido, entre 20 a 30 pessoas parecidas (doc 03) | Ranking de qualidade; concorrentes falsos; rebaixamento que humilha |
+| Exposição em degraus | Revoada: falar junto sem ser ouvido, depois subir no galho com fala gravada e direito de passar a vez (doc 04) | Fala ao vivo forçada; nota da apresentação; chat livre entre desconhecidos |
 
 **Revisão de 14/11/2026 (decisão do fundador):** a versão anterior deste doc recusava qualquer comparação social. As ligas competitivas entram, porque dão motivo para voltar e abrem caminho para premiações. A linha passa a ser: **liga por esforço, sim; ranking de quem fala melhor, não.** Desenho completo em [03-licoes-do-duolingo.md](03-licoes-do-duolingo.md).
 
@@ -89,6 +90,7 @@ Cada etapa que não passa gera um doc curto com o que aprendemos, e a decisão d
 | Programas temáticos (entrevista, apresentação, pedir aumento, conversa difícil) | — | ✅ |
 | Modo "antes de uma conversa importante" (90s) | ✅ | ✅ |
 | Ligas semanais por esforço (v1) | ✅ | ✅ |
+| Revoada, a sala de apresentação (após as ligas) | ✅ | ✅ |
 
 **O que nunca entra:** anúncio no meio do treino, notificação de culpa, streak que zera, desconto por pressão ("só hoje"), venda de dados de voz, ranking de qualidade da fala, concorrentes falsos em liga, vantagem de pontuação para quem paga. O áudio é do usuário; análise premium processa e descarta.
 
@@ -102,6 +104,7 @@ Cada etapa que não passa gera um doc curto com o que aprendemos, e a decisão d
 - **Onboarding por sintoma:** "O que mais te atrapalha?" (rápido, enrolado, branco) monta ênfase do plano. Primeira gravação de 30s vira o "antes".
 - **Trilha de 30 dias:** quatro unidades (fôlego, pausa, clareza, estrutura) em vez de sorteio; dia 30 compara com o dia 1. Esboço no doc 03. Cabe no protótipo antes da v1.
 - **Ligas semanais por esforço:** pontos por treino feito, nunca por qualidade; opcionais; premiação interna. Regras no doc 03.
+- **Revoada (depois das ligas):** salas de até 10 em que os pássaros se apresentam com fala gravada. Amigos e desconhecidos no mesmo lançamento, com denúncia, silenciar e verificação de idade desde o primeiro dia. Desenho no doc 04.
 - **Feedback de IA (premium):** transcrição de qualidade, análise de ritmo por trecho, muletas, estrutura (seguiu o molde?), e uma única sugestão para amanhã, em tom de amigo.
 - **Conta opcional:** só para sincronizar entre aparelhos, para o premium e para as ligas. Sem conta o treino continua funcionando.
 - **Lojas (Android primeiro):** quando a PWA provar retenção.
@@ -120,5 +123,7 @@ Cada etapa que não passa gera um doc curto com o que aprendemos, e a decisão d
 - [ ] Etapa 2: vídeos sobre o sintoma
 - [x] Rodada de nomes: Vozi, "diz aí", mascote sabiá (doc 02)
 - [x] Estudo do Duolingo e decisão sobre ligas (doc 03, 14/11/2026)
+- [x] Revoada desenhada, com as duas portas e a segurança como requisito de lançamento (doc 04, 15/11/2026)
+- [ ] Teste do WhatsApp da Revoada com o círculo
 - [ ] Trilha de 30 dias no protótipo (após a etapa 0)
 - [ ] Decisão de passa ou não passa para v1
