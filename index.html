@@ -177,7 +177,7 @@ button{font:inherit;color:inherit}
 .breath .lbl small{display:block;font-weight:600;font-size:13px;color:var(--tinta2)}
 .contagem{text-align:center;color:var(--tinta2);font-size:14px;min-height:22px;margin-top:6px}
 .pace{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px}
-.pace b{min-width:150px;text-align:center;font-size:15px}
+.pace b{min-width:176px;text-align:center;font-size:15px}
 .pace .btn.small{min-width:46px;padding:10px;margin-bottom:0}
 .reader{margin-top:14px;font-size:21px;line-height:1.75}
 .reader span{padding:1px 3px;border-radius:6px;color:var(--tinta2);transition:background .15s,color .15s}
@@ -185,7 +185,7 @@ button{font:inherit;color:inherit}
 .reader span.did{color:var(--tinta)}
 .reader span.pz::after{content:' ·';color:var(--pausa);font-weight:900}
 #read-msg{text-align:center;min-height:22px;font-size:14px;color:var(--tinta2);margin-top:8px}
-.rec{display:flex;align-items:center;justify-content:center;gap:8px;color:var(--grava);font-weight:800;font-size:14px;min-height:22px;margin-top:10px}
+.rec{display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;color:var(--grava);font-weight:800;font-size:14px;min-height:22px;margin-top:10px}
 .rec .dot{width:10px;height:10px;border-radius:50%;background:var(--grava);animation:pisca 1s infinite}
 @keyframes pisca{50%{opacity:.25}}
 .warn{margin-top:12px;text-align:center;font-size:13.5px;color:var(--tinta2)}
@@ -259,7 +259,7 @@ details p{color:var(--tinta2);font-size:15.5px;margin:0 0 12px}
   <header class="topo">
     <div class="marca"><img src="assets/vozi-base.png" alt=""><div><b>Vozi</b><small>diz aí</small></div></div>
     <div class="acoes">
-      <button class="redondo" id="btn-claro-escuro" onclick="alternaTema()" aria-label="Mudar para o modo escuro"></button>
+      <button class="redondo" id="btn-claro-escuro" onclick="alternaTema()" aria-label="Mudar pra Noite"></button>
       <button class="redondo" onclick="go('s-diario')" title="Diário" aria-label="Diário"><span class="ic" data-ic="notebook-pen"></span></button>
       <button class="redondo" onclick="go('s-sobre')" title="Como funciona" aria-label="Como funciona"><span class="ic" data-ic="circle-help"></span></button>
     </div>
@@ -326,16 +326,16 @@ details p{color:var(--tinta2);font-size:15.5px;margin:0 0 12px}
       <p>A trilha é um pé de laranja. Cada dia treinado amadurece uma laranja, e o Vozi fica pousado no dia de hoje.</p>
       <p>No dia 1 você grava uma apresentação curta, que fica guardada como o seu antes. No dia 30 você grava o mesmo tema e ouve as duas.</p>
       <p>A trilha anda um dia por dia treinado. Se você faltar, ela espera no mesmo lugar. Quem quiser mais no mesmo dia pode repetir o dia ou fazer um treino livre.</p></details>
-    <details><summary><span class="ic" data-ic="wind"></span>Respira, 45 segundos</summary>
+    <details><summary><span class="ic" data-ic="wind"></span>Respira, 1 minuto</summary>
       <p>Quem fala rápido e enrolado quase sempre está respirando curto, lá no alto do peito. Você só consegue falar tão devagar quanto respira. Quatro ou cinco ciclos de respiração baixa (barriga) acalmam o sistema nervoso e dão ar pras frases inteiras.</p></details>
     <details><summary><span class="ic" data-ic="speech"></span>Articula, 1 minuto</summary>
       <p>Trava-línguas falado devagar e exagerado acorda a boca: língua, lábios, mandíbula. "Enrolado" é, em boa parte, boca preguiçosa correndo atrás do pensamento. Primeiro bem lento, mastigando cada sílaba. Só depois no ritmo normal.</p></details>
     <details><summary><span class="ic" data-ic="book-open-text"></span>Lê no ritmo, 1 minuto e meio</summary>
-      <p>Um texto curto com uma marcação que avança no ritmo-alvo e para nas vírgulas e pontos. Você lê acompanhando a marca. Isso treina as duas coisas que mais fazem alguém soar claro: velocidade constante e pausas nos lugares certos. Cerca de 130 palavras por minuto é o ritmo de uma conversa calma.</p></details>
+      <p>Um texto curto com uma marca que anda no ritmo certo e para nas vírgulas e nos pontos. Você lê acompanhando a marca. Isso treina as duas coisas que mais fazem alguém soar claro: velocidade constante e pausas nos lugares certos. Cerca de 130 palavras por minuto é o ritmo de uma conversa calma.</p></details>
     <details><summary><span class="ic" data-ic="mic"></span>Fala livre, 1 minuto</summary>
       <p>Um tema do dia e uma estrutura simples (por exemplo: ponto, porque, exemplo, ponto). A estrutura é o antídoto do "não sei o que falar": você nunca começa do zero, começa de um molde. Um minuto, gravado. Pausar é permitido. Silêncio não é erro.</p></details>
     <details><summary><span class="ic" data-ic="ear"></span>Reescuta</summary>
-      <p>A ferramenta mais poderosa que existe pra fala, e a mais evitada: se ouvir. Quase todo mundo descobre que soa melhor do que imaginava, e que o "rápido demais" tem lugares específicos. Se o navegador permitir, o app estima seu ritmo em palavras por minuto e conta muletas ("tipo", "né", "aí"). Depois você se avalia em três coisas e anota uma pra amanhã.</p></details>
+      <p>A ferramenta mais poderosa que existe pra fala, e a mais evitada: se ouvir. Quase todo mundo descobre que soa melhor do que imaginava, e que o "rápido demais" tem lugares específicos. Se o navegador permitir, o app estima seu ritmo em palavras por minuto e conta as muletas, aquelas palavras de apoio como "tipo", "né" e "aí". Depois você se avalia em três coisas e anota uma pra amanhã.</p></details>
   </div>
 
   <div class="bloco">
@@ -343,7 +343,7 @@ details p{color:var(--tinta2);font-size:15.5px;margin:0 0 12px}
     <ul class="regras">
       <li><span class="ic" data-ic="check"></span>Não precisa ficar bom hoje. Precisa aparecer hoje.</li>
       <li><span class="ic" data-ic="check"></span>Nada zera. Nada pune. A trilha espera você.</li>
-      <li><span class="ic" data-ic="check"></span>Os áudios ficam só no seu aparelho e somem ao fechar. As únicas gravações guardadas são a do dia 1 e a do dia 30 da trilha, para você comparar, e elas também não saem do aparelho. O diário fica salvo no navegador.</li>
+      <li><span class="ic" data-ic="check"></span>Os áudios ficam só no seu aparelho e somem ao fechar. As únicas gravações guardadas são a do dia 1 e a do dia 30 da trilha, pra você comparar, e elas também não saem do aparelho. O diário fica salvo no navegador.</li>
       <li><span class="ic" data-ic="check"></span>Esse treino é pra fluência e segurança no dia a dia. Se houver gagueira, travas fortes ou ansiedade que paralisa, um fonoaudiólogo faz uma diferença enorme, e este app é um bom complemento, não um substituto.</li>
     </ul>
   </div>
@@ -373,7 +373,7 @@ function temaAtual(){ const t=S.tema||'claro'; if(t==='auto')return window.match
 function aplicaTema(){
   const t=temaAtual(); document.documentElement.dataset.theme=t;
   const m=document.querySelector('meta[name=theme-color]'); if(m)m.content=t==='noite'?'#071722':'#DCEEF7';
-  const b=document.getElementById('btn-claro-escuro'); if(b){ const rot=t==='noite'?'Mudar para o modo claro':'Mudar para o modo escuro'; b.innerHTML=ic(t==='noite'?'sun':'moon'); b.setAttribute('aria-label',rot); b.title=rot; }
+  const b=document.getElementById('btn-claro-escuro'); if(b){ const rot=t==='noite'?'Mudar pra Manhã':'Mudar pra Noite'; b.innerHTML=ic(t==='noite'?'sun':'moon'); b.setAttribute('aria-label',rot); b.title=rot; }
   document.querySelectorAll('#tema-opcoes button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.t===(S.tema||'claro')));
 }
 function defineTema(t){ S.tema=t; save(); aplicaTema(); }
@@ -455,18 +455,18 @@ const MOLDES = [
 ];
 
 const DICAS = [
-  "<b>Falar devagar não é falar lento.</b> É colocar pausa entre as ideias. A velocidade dentro da frase pode ser normal.",
-  "<b>Antes de responder, respira uma vez.</b> O segundo de silêncio parece enorme pra você e normal pra quem ouve.",
-  "<b>Quando a palavra sumir:</b> para, respira, repete a última ideia com outras palavras. Ninguém percebe o buraco.",
-  "<b>Termina a frase.</b> Deixa o tom descer no ponto final. Isso transmite segurança mais do que qualquer vocabulário.",
-  "<b>Fala pra uma pessoa só.</b> Em grupo, escolhe um rosto por frase. O cérebro relaxa quando tem um destino.",
-  "<b>Uma ideia por frase.</b> Frases longas com 'e aí, e então, tipo' são onde a fala enrola. Ponto final é seu amigo.",
+  "<b>Falar devagar não é falar lento.</b> É colocar pausa entre as ideias. Dentro da frase, a velocidade pode ser normal.",
+  "<b>Antes de responder, respire uma vez.</b> O segundo de silêncio parece enorme pra você e normal pra quem ouve.",
+  "<b>Quando a palavra sumir,</b> pare, respire e repita a última ideia com outras palavras. Ninguém percebe o buraco.",
+  "<b>Termine a frase.</b> Deixe o tom descer no ponto final. Isso passa mais segurança do que qualquer vocabulário.",
+  "<b>Fale pra uma pessoa só.</b> Em grupo, escolha um rosto por frase. A cabeça relaxa quando tem um destino.",
+  "<b>Uma ideia por frase.</b> A fala enrola nas frases longas, emendadas com \"e aí\", \"e então\" e \"tipo\". O ponto final é seu amigo.",
   "<b>A boca vai atrás do pensamento.</b> Se a boca está correndo, o pensamento está correndo. Devagar na boca acalma a cabeça.",
-  "<b>Ensaiar em voz alta funciona.</b> Antes de uma conversa importante, fale a primeira frase no banheiro. A primeira frase é a mais difícil.",
+  "<b>Ensaiar em voz alta funciona.</b> Antes de uma conversa importante, diga a primeira frase sozinho. A primeira frase é a mais difícil.",
   "<b>Você soa melhor do que acha.</b> Quem se ouve gravado pela primeira vez quase sempre se surpreende. Confie na gravação, não na sensação.",
-  "<b>Molde antes de conteúdo.</b> Se não sabe o que falar, escolhe o molde (ponto, porque, exemplo) e preenche. O conteúdo aparece.",
-  "<b>Pausa com a boca fechada.</b> O 'ééé' é uma pausa com a boca aberta. Fecha a boca na pausa e a muleta some sozinha.",
-  "<b>Mão quieta, voz calma.</b> Se as mãos estão aceleradas, a fala acelera junto. Apoia as mãos e sente a diferença.",
+  "<b>Molde antes de conteúdo.</b> Se não sabe o que falar, escolha o molde (ponto, porque, exemplo) e preencha. O conteúdo aparece.",
+  "<b>Pausa com a boca fechada.</b> O \"ééé\" é uma pausa com a boca aberta. Feche a boca na pausa e a muleta some sozinha.",
+  "<b>Mão quieta, voz calma.</b> Se as mãos estão aceleradas, a fala acelera junto. Apoie as mãos e sinta a diferença.",
 ];
 
 const MULETAS = ["tipo","né","aí","então","assim","sabe","entendeu","basicamente","ééé","hum"];
@@ -564,7 +564,7 @@ const DIAS = [
     "Dê sua opinião sobre uma ideia de um colega", 0),
   D("Bote a bota no bote e tire o pote do bote.",
     "Molde é um caminho pronto para a fala. Ele importa porque tira o medo do começo: você já sabe qual é o próximo passo. Para usar, é simples. Diga o que é. Diga por que importa. Diga como funciona. Três frases, e a ideia está de pé.",
-    "Peça mais prazo para terminar uma tarefa", 4),
+    "Peça mais prazo pra terminar uma tarefa", 4),
   D("Larga a tia, lagartixa! Lagartixa, larga a tia!",
     "Antes, eu começava a falar sem saber onde ia chegar. Hoje, escolho um molde e sigo por ele. Daqui a um tempo, espero não precisar mais pensar nisso. É assim com tudo que se aprende: primeiro é esforço, depois é hábito, por fim é jeito.",
     "Conte como um projeto seu mudou do começo até hoje", 1),
@@ -575,11 +575,11 @@ const DIAS = [
     "Quando chegar a sua vez de falar na reunião, não comece pelo detalhe. Comece pelo ponto: o que você quer que as pessoas saibam. Depois dê o motivo, e um exemplo. Termine repetindo o ponto. Leva menos de um minuto, e todo mundo sai sabendo o que você pensa.",
     "Discorde de alguém com respeito", 0),
   D("O doce perguntou pro doce qual é o doce mais doce. O doce respondeu pro doce que o doce mais doce é o doce de batata-doce.",
-    TEXTOS[1], "Por que devemos escolher você para essa vaga?", 0),
+    TEXTOS[1], "Por que devemos escolher você pra essa vaga?", 0),
   /* ---------- ANTES E DEPOIS ---------- */
   D("Sabendo o que sei e sabendo o que sabes, saberemos se somos sábios ou só sabidos.",
     "Você treinou o fôlego, a pausa, a clareza e a estrutura. Hoje, junte tudo. Respire antes de começar. Pare nas vírgulas. Termine cada palavra. Siga um molde. Não precisa sair perfeito. Precisa sair seu, com calma, do começo ao fim.",
-    "Dê um conselho para quem está começando a treinar a fala", 0,
+    "Dê um conselho pra quem está começando a treinar a fala", 0,
     {speak:'Ensaio geral: respira, pausa, palavra inteira, molde. Tudo junto.'}),
   D(TRAVAS[5], "Trinta treinos atrás, você gravou a sua voz e guardou. Hoje vai gravar de novo, sobre o mesmo assunto. Depois, vai ouvir as duas, uma depois da outra. Preste atenção no ritmo, nas pausas, no fim das frases. A diferença é sua. Foi você quem apareceu, dia após dia.",
     null, 1,
@@ -625,13 +625,13 @@ async function audioUrl(k){ const a=await idbGet(k); return a&&a.buf?URL.createO
 async function renderBA(el,nowUrl){
   if(!el)return; const T=S.trail; const aUrl=await audioUrl('antes'); const dUrl=nowUrl||await audioUrl('depois');
   if(!el.isConnected)return;
-  const m=x=>x&&x.ppm?` <span>· ${x.ppm} ppm · ${x.fillers} muletas</span>`:'';
+  const m=x=>x&&x.ppm?` <span>${x.ppm} palavras por minuto, ${x.fillers} ${x.fillers===1?'muleta':'muletas'}</span>`:'';
   el.innerHTML=`<div class="ba">
-    <div><div class="lab">Antes · dia 1${m(T.antes)}</div>${aUrl?`<audio controls src="${aUrl}" preload="metadata" data-ba="antes"></audio>`:'<p class="faint">A gravação do dia 1 não ficou guardada neste aparelho.</p>'}</div>
-    <div><div class="lab">${nowUrl?'Agora':'Depois'} · dia 30${nowUrl?'':m(T.depois)}</div>${dUrl?`<audio controls src="${dUrl}" preload="metadata" data-ba="depois"></audio>`:'<p class="faint">Sem gravação do dia 30.</p>'}</div>
+    <div><div class="lab">Antes, no dia 1.${m(T.antes)}</div>${aUrl?`<audio controls src="${aUrl}" preload="metadata" data-ba="antes"></audio>`:'<p class="faint">A gravação do dia 1 não ficou guardada neste aparelho.</p>'}</div>
+    <div><div class="lab">${nowUrl?'Agora':'Depois'}, no dia 30.${nowUrl?'':m(T.depois)}</div>${dUrl?`<audio controls src="${dUrl}" preload="metadata" data-ba="depois"></audio>`:'<p class="faint">Sem gravação do dia 30.</p>'}</div>
   </div>`;
 }
-function restartTrail(){ if(confirm('Recomeçar a trilha do dia 1? O diário continua. As gravações de antes e depois são apagadas.')){ S.trail=newTrail(); save(); idbDel('antes'); idbDel('depois'); renderHome(); } }
+function restartTrail(){ if(confirm('Recomeçar a trilha do dia 1? As laranjas e as gravações de antes e depois são apagadas. O diário continua.')){ S.trail=newTrail(); save(); idbDel('antes'); idbDel('depois'); renderHome(); } }
 
 /* o pé de laranja: 30 dias num galho que desce em zigue-zague.
    dia por vir = flor, dia treinado = laranja madura, o Vozi pousa no dia de hoje */
@@ -692,7 +692,7 @@ function renderTrailCard(){
   if(next>30){
     livre.style.display='none';
     el.innerHTML=`<h2>Trilha completa</h2><p class="unidade">Trinta treinos. Ouça de onde você saiu e onde chegou.</p><div id="ba-home"></div>
-      <button class="btn primary" id="btn-start" onclick="startTraining('livre')">${ic('play')}${S.days[dkey()]?'Treinar de novo':'Treino de hoje'}</button>
+      <button class="btn primary" id="btn-start" onclick="startTraining('livre')">${ic('play')}${S.days[dkey()]?'Treinar de novo':'Fazer o treino de hoje'}</button>
       <p class="tempo">Tema de hoje: <b class="gold">${pick(TEMAS)}</b></p>`;
     renderBA(document.getElementById('ba-home')); return;
   }
@@ -702,7 +702,7 @@ function renderTrailCard(){
     ? `<h2>Dia ${n} feito</h2><p class="unidade">O dia ${n+1} abre amanhã.</p><p class="tema">Descansar também é treino. Se quiser mais hoje, repita o dia ou faça um treino livre.</p>
        <button class="btn ghost" id="btn-start" onclick="startTraining('trilha')">${ic('rotate-ccw')}Treinar o dia ${n} de novo</button>`
     : `<h2>Dia ${n}</h2><p class="unidade">${u.nome}: ${u.foco.charAt(0).toLowerCase()+u.foco.slice(1)}.</p><p class="tema">Tema de hoje: <b class="gold">${temaDoDia(n)}</b></p>
-       <button class="btn primary" id="btn-start" onclick="startTraining('trilha')">${ic('play')}${n===1?'Começar a trilha':'Começar o dia '+n}</button><p class="tempo">Leva uns cinco minutos.</p>`;
+       <button class="btn primary" id="btn-start" onclick="startTraining('trilha')">${ic('play')}${n===1?'Começar a trilha':'Começar o dia '+n}</button><p class="tempo">${n===1?'Leva uns cinco minutos. São 30 dias, um de cada vez.':'Leva uns cinco minutos.'}</p>`;
 }
 
 /* ===================== NAVEGAÇÃO ===================== */
@@ -717,8 +717,10 @@ function renderHome(){
   renderWeek(document.getElementById('week'));
   const wk=weekDays().filter(d=>S.days[dkey(d)]).length, total=Object.keys(S.days).length;
   const ppms=S.entries.filter(e=>e.ppm).slice(-5).map(e=>e.ppm), media=ppms.length?Math.round(ppms.reduce((a,b)=>a+b,0)/ppms.length):0;
-  document.getElementById('home-stats').textContent=total===0?'Faltou um dia? Tudo bem. Nada zera, a trilha só espera.'
-    :`${total} ${total===1?'dia treinado':'dias treinados'} no total, ${wk} nesta semana.`+(media?` Ritmo médio: ${media} palavras por minuto.`:'');
+  // quem volta depois de uns dias ouve "que bom te ver", nunca uma cobrança
+  const ultimo=Object.keys(S.days).sort().pop(), longe=ultimo?Math.round((new Date(dkey()+'T12:00')-new Date(ultimo+'T12:00'))/864e5):0;
+  document.getElementById('home-stats').textContent=total===0?'Os dias que você treinar ficam marcados aqui.'
+    :(longe>=3?'Que bom te ver de novo. Nada zerou. ':'')+`${total} ${total===1?'dia treinado':'dias treinados'} no total, ${wk} nesta semana.`+(media?` Ritmo médio: ${media} palavras por minuto.`:'');
   document.getElementById('home-topic').innerHTML=`Fora da trilha, com tema sorteado. O de hoje: <b class="gold">${pick(TEMAS)}</b>`;
   document.getElementById('home-tip').innerHTML=pick(DICAS);
   renderTrailCard();
@@ -745,7 +747,11 @@ function startTraining(mode){
   document.getElementById('t-head').textContent=session.trilha?`Dia ${session.trilha}, ${unitOf(session.trilha).nome}`:'Treino livre';
   go('s-train'); renderStep();
 }
-function quitTraining(){ stopTimer(); stopReading(); stopRecording(true); go('s-home'); renderHome(); }
+function quitTraining(){
+  // só pergunta quando há o que perder: a gravação feita e ainda não salva
+  if(STEPS[cur]==='listen'&&session&&session.url&&!confirm('Sair sem salvar? A gravação de hoje se perde e o dia não fica marcado.'))return;
+  stopTimer(); stopReading(); stopRecording(true); go('s-home'); renderHome();
+}
 function next(){ stopTimer(); stopReading(); cur++; if(cur>=STEPS.length){finish();return;} renderStep(); }
 function renderSteps(){ document.getElementById('steps').innerHTML=STEPS.map((s,i)=>`<i class="${i<cur?'done':i===cur?'cur':''}"></i>`).join(''); }
 const PASSOS={breath:['Respira','wind'],artic:['Articula','speech'],read:['Lê no ritmo','book-open-text'],speak:['Fala livre','mic'],listen:['Reescuta','ear']};
@@ -761,14 +767,14 @@ function renderBreath(el){
   const N=session.ciclos||4, mine=session;
   el.innerHTML=`${cabeca('breath','vozi-respira.png','Vozi de olhos fechados, respirando fundo')}
   <p class="stepsub">Mão na barriga. O ar entra pelo nariz e empurra a mão pra fora. ${N===5?'Cinco':'Quatro'} ciclos.</p>${focoHTML('breath')}
-  <div class="breath"><div class="orb" id="orb"></div><div class="lbl" id="blbl">Pronto?<small>começa em 2s</small></div></div>
-  <p class="contagem" id="bcount">ciclo 1 de ${N}</p>
-  <button class="btn primary" onclick="next()">Próximo</button>`;
+  <div class="breath"><div class="orb" id="orb"></div><div class="lbl" id="blbl">Vamos lá<small>já começa</small></div></div>
+  <p class="contagem" id="bcount">Ciclo 1 de ${N}</p>
+  <button class="btn primary" onclick="next()">Próximo passo</button>`;
   const orb=document.getElementById('orb'), lbl=document.getElementById('blbl'), cnt=document.getElementById('bcount');
-  const phases=[['in','Inspira',4],['hold','Segura',2],['out','Solta',6]]; let cyc=0, ph=0, left=0;
+  const phases=[['in','Inspire',4],['hold','Segure',2],['out','Solte',6]]; let cyc=0, ph=0, left=0;
   stopTimer();
   setTimeout(()=>{ if(STEPS[cur]!=='breath'||session!==mine||!document.getElementById('s-train').classList.contains('on'))return;
-    const setPhase=()=>{ const [cls,txt,s]=phases[ph]; orb.className='orb '+cls; left=s; lbl.innerHTML=`${txt}<small>${left}</small>`; cnt.textContent=`ciclo ${cyc+1} de ${N}`; };
+    const setPhase=()=>{ const [cls,txt,s]=phases[ph]; orb.className='orb '+cls; left=s; lbl.innerHTML=`${txt}<small>${left}</small>`; cnt.textContent=`Ciclo ${cyc+1} de ${N}`; };
     setPhase();
     timer=setInterval(()=>{ left--; if(left>0){ lbl.querySelector('small').textContent=left; return; }
       ph++; if(ph>=phases.length){ph=0;cyc++;} if(cyc>=N){ stopTimer(); orb.className='orb'; lbl.innerHTML=`Boa.<small>a voz vem daqui</small>`; cnt.textContent=''; return; } setPhase(); },1000);
@@ -780,7 +786,7 @@ function renderArtic(el){
   el.innerHTML=`${cabeca('artic')}
   <p class="stepsub">Fale <b>bem devagar</b>, exagerando cada sílaba, três vezes. Depois duas vezes no ritmo normal. Boca grande, sem vergonha.</p>${focoHTML('artic')}
   <div class="frase" id="trava">${session.trava}</div>${ringHTML('r-artic','segundos')}
-  <div class="row"><button class="btn ghost small" onclick="otherTrava()">${ic('shuffle')}Outra frase</button><button class="btn primary" onclick="next()">Próximo</button></div>`;
+  <div class="row"><button class="btn ghost small" onclick="otherTrava()">${ic('shuffle')}Outra frase</button><button class="btn primary" onclick="next()">Próximo passo</button></div>`;
   runRing('r-artic',60,()=>{});
 }
 function otherTrava(){ const i=TRAVAS.indexOf(session.trava); session.trava=TRAVAS[(i+1)%TRAVAS.length]; document.getElementById('trava').textContent=session.trava; }
@@ -794,12 +800,12 @@ function renderRead(el){
   <div class="pace"><button class="btn small ghost" onclick="bumpPace(-10)" aria-label="Mais devagar">${ic('minus')}</button><b id="pace-lbl"></b><button class="btn small ghost" onclick="bumpPace(10)" aria-label="Mais rápido">${ic('plus')}</button></div>
   <div class="reader" id="reader">${words.map((w,i)=>`<span data-i="${i}" class="${/[,.;:!?…]$/.test(w)?'pz':''}">${w}</span>`).join(' ')}</div>
   <p id="read-msg" aria-live="polite"></p>
-  <div class="row"><button class="btn ghost small" id="read-btn" onclick="toggleReading()">${ic('play')}Começar</button><button class="btn primary" onclick="next()">Próximo</button></div>`;
+  <div class="row"><button class="btn ghost small" id="read-btn" onclick="toggleReading()">${ic('play')}Começar</button><button class="btn primary" onclick="next()">Próximo passo</button></div>`;
   rd={t:null,i:0,words,playing:false}; paceLbl();
 }
 function pace(){ return (session&&session.pace)||S.target; }
 function bumpPace(d){ if(session&&session.trilha)session.pace=Math.max(90,Math.min(180,session.pace+d)); else{ setTarget(d); if(session)session.pace=S.target; } paceLbl(); }
-function paceLbl(){ const l=document.getElementById('pace-lbl'); if(l)l.textContent=`${pace()} palavras/min`; }
+function paceLbl(){ const l=document.getElementById('pace-lbl'); if(l)l.textContent=`${pace()} palavras por minuto`; }
 function readBtn(icone,txt){ const b=document.getElementById('read-btn'); if(b)b.innerHTML=ic(icone)+txt; }
 function toggleReading(){ if(rd.playing){ stopReading(); readBtn('play','Continuar'); } else startReading(); }
 function startReading(){
@@ -815,7 +821,7 @@ function startReading(){
 }
 function stopReading(){ rd.playing=false; if(rd.t){clearTimeout(rd.t);rd.t=null;} }
 function setTarget(d){ S.target=Math.max(90,Math.min(180,S.target+d)); save(); renderTarget(); }
-function renderTarget(){ const l=document.getElementById('target-lbl'); if(l)l.textContent=S.target+' palavras/min'; }
+function renderTarget(){ const l=document.getElementById('target-lbl'); if(l)l.textContent=S.target+' palavras por minuto'; }
 
 /* --- 4. fala livre --- */
 let rec={mr:null,stream:null,chunks:[],sr:null,start:0,active:false,words:0,fillers:0};
@@ -841,11 +847,11 @@ async function beginSpeak(){
   try{
     rec.stream=await navigator.mediaDevices.getUserMedia({audio:true});
     rec.mr=new MediaRecorder(rec.stream); rec.mr.ondataavailable=e=>{if(e.data.size)rec.chunks.push(e.data)}; rec.mr.start(250);
-    stat.innerHTML='<span class="dot"></span> gravando';
-  }catch(e){ stat.innerHTML='<span class="muted">Sem microfone. Fale mesmo assim, o treino vale igual.</span>'; }
+    stat.innerHTML='<span class="dot"></span> Gravando';
+  }catch(e){ stat.innerHTML='<span class="muted">O microfone não ligou, então hoje não vai ter gravação. Fale mesmo assim: o treino vale igual.</span>'; }
   startRecognition();
   rec.start=Date.now();
-  b.disabled=false; b.innerHTML=ic('square')+'Parar'; b.onclick=()=>endSpeak();
+  b.disabled=false; b.innerHTML=ic('square')+'Terminei'; b.onclick=()=>endSpeak();
   runRing('r-speak',60,()=>endSpeak());
 }
 function startRecognition(){
@@ -883,21 +889,22 @@ const NOTAS={
   pausas:['Pausas',[['fast-forward','nenhuma'],['pause','algumas'],['check-check','no lugar certo']]],
 };
 function renderListen(el){
-  const s=session; let zona='';
-  if(s.ppm){ zona=s.ppm>165?'<span style="color:var(--grava)">acelerado</span>':s.ppm<115?'<span style="color:var(--pausa)">bem calmo</span>':'<span style="color:var(--feito)">ritmo de conversa</span>'; }
+  const s=session; let leitura='';
+  if(s.ppm){ const zona=s.ppm>165?'é um ritmo acelerado. Amanhã, mais pausas':s.ppm<115?'é um ritmo bem calmo':'é ritmo de conversa';
+    leitura=`${s.ppm} palavras por minuto ${zona}. `+(s.fillers?`${s.fillers} ${s.fillers===1?'muleta':'muletas'}, aquelas palavras de apoio como "tipo" e "né".`:'Nenhuma muleta.'); }
   el.innerHTML=`${cabeca('listen','vozi-ouvindo.png','Vozi com a asa atrás do ouvido, ouvindo')}
   <p class="stepsub">Ouça uma vez inteira antes de julgar. Depois responda com honestidade e gentileza, como falaria de um amigo.</p>${focoHTML('listen')}
   ${s.trilha===30?'<div id="ba-listen"></div>':s.url?`<audio controls src="${s.url}" preload="auto"></audio>`:`<p class="warn">Sem gravação desta vez. Avalie pela sensação.</p>`}
   <div class="metrics">
-    <div class="stat"><b>${s.secs?s.secs+'s':'—'}</b><span>falou por</span></div>
-    <div class="stat"><b>${s.ppm||'—'}</b><span>${s.ppm?zona:'palavras/min'}</span></div>
+    <div class="stat"><b>${s.secs?s.secs+'s':'—'}</b><span>de fala</span></div>
+    <div class="stat"><b>${s.ppm||'—'}</b><span>palavras por minuto</span></div>
     <div class="stat"><b>${s.ppm?s.fillers:'—'}</b><span>muletas</span></div>
   </div>
-  ${s.ppm?'':'<p class="warn">Ritmo e muletas só aparecem quando o navegador consegue reconhecer a fala. O Chrome costuma conseguir.</p>'}
+  <p class="warn">${s.ppm?leitura:'Ritmo e muletas só aparecem quando o navegador consegue reconhecer a fala. O Chrome costuma conseguir.'}</p>
   ${rateHTML('ritmo')}${rateHTML('clareza')}${rateHTML('pausas')}
   <label class="f" for="n-bem">Uma coisa que foi bem</label><textarea id="n-bem" placeholder="ex.: terminei as frases"></textarea>
   <label class="f" for="n-amanha">Uma coisa pra amanhã</label><textarea id="n-amanha" placeholder="ex.: pausar na vírgula"></textarea>
-  <button class="btn primary" onclick="saveSession()">Salvar e fechar o dia</button>`;
+  <button class="btn primary" id="btn-salvar" onclick="saveSession()">${s.trilha&&!s.replay?'Salvar e fechar o dia '+s.trilha:'Salvar o treino'}</button>`;
   if(s.trilha===30)renderBA(document.getElementById('ba-listen'),s.url||null);
 }
 function rateHTML(k){ const [lab,opts]=NOTAS[k]; return `<div class="rate" role="group" aria-label="${lab}"><div class="lab">${lab}</div><div class="opts">${opts.map((o,i)=>`<button aria-pressed="false" onclick="rate('${k}',${i},this)">${ic(o[0])}${o[1]}</button>`).join('')}</div></div>`; }
@@ -919,14 +926,14 @@ function finish(fx){
   stopTimer();
   renderWeek(document.getElementById('week-done'));
   const n=Object.keys(S.days).length; const wk=weekDays().filter(d=>S.days[dkey(d)]).length;
-  const msgs=[`${n}º dia treinado. ${wk} de 7 nesta semana.`, n===1?'Primeiro de muitos. O mais difícil era começar.':'', wk===7?'Semana completa. Isso é raro, e você fez.':''].filter(Boolean);
+  const msgs=[n===1?'O mais difícil era começar.':'', wk===7?'Semana completa. Isso é raro, e você fez.':''].filter(Boolean);
   let h='Dia marcado', sub='o Vozi ouviu. Você falou, e é isso que conta.';
   if(fx){
     if(fx.completa){ h='Trilha completa'; sub='trinta treinos. Foi você quem apareceu.'; msgs.unshift('Na tela inicial ficam o seu antes e o seu depois, pra ouvir quando quiser.'); }
     else if(fx.fechou){ const u=unitOf(fx.n), p=unitOf(fx.n+1); h=`Unidade ${u.nome} fechada`; sub=`dia ${fx.n} de 30. O Vozi está orgulhoso.`; msgs.unshift(`A seguir: <b>${p.nome}</b>. ${p.foco}.`); }
-    else if(fx.avanca){ msgs.unshift(`Trilha: dia ${fx.n} de 30 feito.`); if(fx.n===1&&S.trail.antes&&S.trail.antes.audio)msgs.push('Sua gravação de hoje ficou guardada como o seu "antes".'); }
+    else if(fx.avanca){ msgs.unshift(`Dia ${fx.n} de 30, feito. Uma laranja a mais no pé.`); if(fx.n===1&&S.trail.antes&&S.trail.antes.audio)msgs.push('A gravação de hoje ficou guardada como o seu antes.'); }
     else msgs.unshift(`Dia ${fx.n} treinado de novo. A trilha segue amanhã.`);
-  }
+  } else msgs.unshift('Treino livre salvo no diário.');
   document.getElementById('done-h').textContent=h; document.getElementById('done-sub').textContent=sub.charAt(0).toUpperCase()+sub.slice(1);
   document.getElementById('done-msg').innerHTML=msgs.join('<br>');
   document.getElementById('done-tip').innerHTML=pick(DICAS,5);
@@ -939,17 +946,17 @@ function renderDiary(){
   if(!es.length){ el.innerHTML='<p class="muted">Ainda vazio. O primeiro treino escreve a primeira linha.</p>'; return; }
   el.innerHTML=es.map(e=>{ const d=new Date(e.ts);
     const notas=Object.keys(NOTAS).map(k=>e.ratings&&e.ratings[k]!=null?`<span title="${NOTAS[k][0]}: ${NOTAS[k][1][e.ratings[k]][1]}">${ic(NOTAS[k][1][e.ratings[k]][0])}</span>`:'').join('');
-    const medidas=[e.secs?e.secs+'s':'',e.ppm?e.ppm+' palavras/min':'',e.ppm?e.fillers+' muletas':''].filter(Boolean).join(', ');
+    const medidas=[e.secs?e.secs+'s de fala':'',e.ppm?e.ppm+' palavras por minuto':'',e.ppm?e.fillers+(e.fillers===1?' muleta':' muletas'):''].filter(Boolean).join(', ');
     return `<div class="entry"><div class="d">${pad(d.getDate())}/${pad(d.getMonth()+1)}/${d.getFullYear()}${e.trilha?', dia '+e.trilha+' da trilha':''}</div><div class="t">${e.tema}</div>
     <div class="m">${medidas?`<span>${medidas}</span>`:''}${notas?`<span class="notas">${notas}</span>`:''}</div>
     ${e.notes&&e.notes.bem?`<div class="n">${ic('check')}<span>${esc(e.notes.bem)}</span></div>`:''}${e.notes&&e.notes.amanha?`<div class="n alvo">${ic('target')}<span>${esc(e.notes.amanha)}</span></div>`:''}</div>`; }).join('');
 }
 function esc(s){ return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
 function copyDiary(){
-  const txt=[...S.entries].reverse().map(e=>{const d=new Date(e.ts); return `${pad(d.getDate())}/${pad(d.getMonth()+1)}/${d.getFullYear()}${e.trilha?' (trilha, dia '+e.trilha+')':''} — ${e.tema}${e.ppm?` — ${e.ppm} ppm, ${e.fillers} muletas`:''}\n  bem: ${e.notes?.bem||'-'}\n  amanhã: ${e.notes?.amanha||'-'}`;}).join('\n\n');
-  navigator.clipboard?.writeText(txt).then(()=>alert('Diário copiado.')).catch(()=>prompt('Copie:',txt));
+  const txt=[...S.entries].reverse().map(e=>{const d=new Date(e.ts); return `${pad(d.getDate())}/${pad(d.getMonth()+1)}/${d.getFullYear()}${e.trilha?' (trilha, dia '+e.trilha+')':''} — ${e.tema}${e.ppm?` — ${e.ppm} palavras por minuto, ${e.fillers} muletas`:''}\n  foi bem: ${e.notes?.bem||'-'}\n  pra amanhã: ${e.notes?.amanha||'-'}`;}).join('\n\n');
+  navigator.clipboard?.writeText(txt).then(()=>alert('Diário copiado. É só colar onde quiser.')).catch(()=>prompt('Copie o diário:',txt));
 }
-function clearAll(){ if(confirm('Apagar o diário, a sequência da semana e o progresso da trilha de 30 dias? Não dá pra desfazer.')){ S={entries:[],days:{},target:S.target,tema:S.tema,trail:newTrail()}; save(); idbDel('antes'); idbDel('depois'); renderDiary(); renderHome(); } }
+function clearAll(){ if(confirm('Apagar o diário, os dias marcados, a trilha de 30 dias e as gravações de antes e depois? Não dá pra desfazer.')){ S={entries:[],days:{},target:S.target,tema:S.tema,trail:newTrail()}; save(); idbDel('antes'); idbDel('depois'); renderDiary(); renderHome(); } }
 
 /* ===================== BOOT ===================== */
 document.querySelectorAll('[data-ic]').forEach(e=>{ e.innerHTML=ICONES[e.dataset.ic]||''; e.setAttribute('aria-hidden','true'); });

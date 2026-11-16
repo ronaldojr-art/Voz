@@ -119,7 +119,7 @@ Dá para misturar: por exemplo, a Manhã como padrão e a Noite como modo escuro
 - [x] Contraste de texto conferido por cálculo nas duas peles, foco de teclado visível, movimento reduzido respeitado
 - [x] O app carrega só a Gabarito, de `assets/fonts/`. A prévia em `docs/design/` mantém as quatro fontes, como registro da escolha
 - [ ] Especificação escrita dos componentes: estados, tamanhos e espaçamentos, para quando o app deixar de ser um arquivo só
-- [ ] Revisão dos textos da interface, tela por tela
+- [x] Revisão dos textos da interface, tela por tela (16/11/2026, registrada no doc 06)
 - [x] Movimento (16/11/2026): ao voltar de um dia de trilha, a flor cai, a laranja cresce passando de verde a laranja, e o Vozi pula para o galho seguinte. Toca uma vez só, dura cerca de dois segundos, e é o único movimento não pedido do app. Quem ativou "reduzir movimento" no celular vê o resultado direto, sem animação
 
 ## Créditos
