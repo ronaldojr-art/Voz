@@ -37,6 +37,7 @@ Uma trilha de 30 dias dá progressão: uma unidade por semana, e no fim você ou
 
 - [x] Protótipo completo: 5 passos, sequência da semana, diário, dicas, ajuste de ritmo
 - [x] Trilha de 30 dias em 4 unidades (fôlego, pausa, clareza, estrutura), com antes e depois gravados
+- [x] Identidade visual própria: a trilha como pé de laranja, pele Manhã (padrão) e pele Noite (modo escuro), letra Gabarito e ícones de traço
 - [ ] Uma semana de uso real (a métrica: apareceu 5 de 7?)
 - [ ] Ajustar durações e textos a partir do uso
 - [ ] Modo "antes de uma conversa importante" (90s)

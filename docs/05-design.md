@@ -103,15 +103,24 @@ Dá para misturar: por exemplo, a Manhã como padrão e a Noite como modo escuro
 
 ## Decisão
 
-- [ ] Direção escolhida: _________________ (fundador, data)
+- [x] **DECIDIDO (fundador, 16/11/2026): Manhã como padrão e Noite como modo escuro**, com a mesma letra nas duas (Gabarito). A direção Mata fica arquivada na prévia.
+
+### Como ficou no app
+
+- **Manhã é o padrão**, mesmo em celular configurado no modo escuro. O botão de lua no topo troca para a Noite, e a escolha fica guardada.
+- **Automático** é uma terceira opção, em "Como funciona", para quem quer que o Vozi siga o claro ou escuro do celular.
+- **Laranja é a cor da ação na Manhã. Na Noite, a ação continua dourada**, e o laranja fica nas frutas do pé.
 
 ## Depois da escolha
 
-- [ ] Especificação completa: escala de letra, espaçamentos, raios, estados dos botões, movimento
-- [ ] Aplicar no app: tela inicial com o pé de laranja, os cinco passos, a tela de fim, diário e "como funciona"
-- [ ] Trocar todos os emojis por ícones
-- [ ] Revisão de acessibilidade e dos textos da interface
-- [ ] Remover as fontes das direções não escolhidas
+- [x] Aplicado no app inteiro (16/11/2026): tela inicial com o pé de laranja, os cinco passos, a tela de fim, diário e "como funciona"
+- [x] Todos os emojis trocados por ícones de traço, inclusive nas notas da reescuta e no diário
+- [x] As cores vivem em um só lugar do código, como variáveis com nome (céu, tinta, ação, feito, pausa), uma lista para cada pele
+- [x] Contraste de texto conferido por cálculo nas duas peles, foco de teclado visível, movimento reduzido respeitado
+- [x] O app carrega só a Gabarito, de `assets/fonts/`. A prévia em `docs/design/` mantém as quatro fontes, como registro da escolha
+- [ ] Especificação escrita dos componentes: estados, tamanhos e espaçamentos, para quando o app deixar de ser um arquivo só
+- [ ] Revisão dos textos da interface, tela por tela
+- [ ] Movimento: a laranja amadurecendo ao fechar o dia, o Vozi pulando para o galho seguinte
 
 ## Créditos
 
