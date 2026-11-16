@@ -31,6 +31,7 @@ Uma trilha de 30 dias dá progressão: uma unidade por semana, e no fim você ou
 | [docs/02-nomes.md](docs/02-nomes.md) | Rodada de nomes: critérios, candidatos, a decisão (**Vozi**) e o brief do mascote |
 | [docs/03-licoes-do-duolingo.md](docs/03-licoes-do-duolingo.md) | Lições do Duolingo: o que entra, adapta e fica de fora; **ligas por esforço**, premiações e a trilha de 30 dias |
 | [docs/04-revoada.md](docs/04-revoada.md) | **Revoada**: a sala onde os pássaros se apresentam. Rodada, as duas portas (amigos e desconhecidos), segurança e teste antes de programar |
+| [docs/05-design.md](docs/05-design.md) | Sistema de design: o pé de laranja como assinatura e três direções visuais para escolher, com prévia em `docs/design/` |
 
 ## Status
 

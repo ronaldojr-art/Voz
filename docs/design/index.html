@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Vozi — três direções visuais</title>
+<link rel="icon" type="image/png" href="../../assets/vozi-icone.png">
+<style>
+@font-face{font-family:'Gabarito';src:url(fonts/gabarito-latin-wght-normal.woff2) format('woff2');font-weight:400 900;font-display:swap}
+@font-face{font-family:'Bricolage';src:url(fonts/bricolage-grotesque-latin-wght-normal.woff2) format('woff2');font-weight:200 800;font-display:swap}
+@font-face{font-family:'Fraunces';src:url(fonts/fraunces-latin-soft-normal.woff2) format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Figtree';src:url(fonts/figtree-latin-wght-normal.woff2) format('woff2');font-weight:300 900;font-display:swap}
+
+/* ---------- as três direções ---------- */
+[data-theme=manha]{
+  --ceu:#DCEEF7; --chao:#F4F8EC; --papel:#FFFFFF; --tinta:#12324A; --tinta2:#496678; --fio:#C5DBE7;
+  --acao:#F58220; --acao-borda:#BF5B0A; --na-acao:#2B1400; --feito:#26784A; --gema:#FFCB3D;
+  --galho:#8B5B3D; --folha:#46A06A; --flor:#FFFFFF; --flor-fio:#AFC9D8; --laranja:#F58220; --laranja-sombra:#D8650C;
+  --f-titulo:'Gabarito',system-ui,sans-serif; --f-texto:'Gabarito',system-ui,sans-serif; --peso-titulo:800; --raio:22px; --raio-btn:18px;
+  background:linear-gradient(180deg,var(--ceu) 0%,var(--chao) 62%);
+}
+[data-theme=mata]{
+  --ceu:#103A2D; --chao:#0C2F25; --papel:#184837; --tinta:#F5F0E1; --tinta2:#B5CBBB; --fio:#2A6350;
+  --acao:#F68B2C; --acao-borda:#F68B2C; --na-acao:#2B1400; --feito:#A3DDAE; --gema:#FFD166;
+  --galho:#C7A380; --folha:#62B985; --flor:#F5F0E1; --flor-fio:#F5F0E1; --laranja:#F68B2C; --laranja-sombra:#D06A12;
+  --f-titulo:'Fraunces',Georgia,serif; --f-texto:'Figtree',system-ui,sans-serif; --peso-titulo:600; --raio:14px; --raio-btn:999px;
+  background:radial-gradient(900px 520px at 80% -10%,#1B5340 0%,transparent 60%),linear-gradient(180deg,var(--ceu),var(--chao));
+}
+[data-theme=noite]{
+  --ceu:#071722; --chao:#04101A; --papel:#0E2431; --tinta:#EAF1F4; --tinta2:#9DB2BF; --fio:#1E3B4B;
+  --acao:#FFD84D; --acao-borda:#FFD84D; --na-acao:#1B1400; --feito:#7DF28C; --gema:#FFD84D;
+  --galho:#8C7762; --folha:#4FA36E; --flor:#DCE8EE; --flor-fio:#DCE8EE; --laranja:#F68B2C; --laranja-sombra:#C9620F;
+  --f-titulo:'Bricolage',system-ui,sans-serif; --f-texto:'Bricolage',system-ui,sans-serif; --peso-titulo:700; --raio:18px; --raio-btn:16px;
+  background:radial-gradient(1000px 520px at 50% -180px,rgba(89,184,232,.16),transparent 60%),linear-gradient(180deg,var(--ceu),var(--chao));
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100dvh;color:var(--tinta);font-family:var(--f-texto);font-size:16px;line-height:1.5;
+  background-attachment:fixed;-webkit-tap-highlight-color:transparent;transition:color .25s}
+main{max-width:430px;margin:0 auto;padding:22px 18px calc(110px + env(safe-area-inset-bottom))}
+h1,h2,h3{font-family:var(--f-titulo);font-weight:var(--peso-titulo);line-height:1.12;margin:0;letter-spacing:-.01em}
+[data-theme=mata] h1,[data-theme=mata] h2,[data-theme=mata] h3{font-variation-settings:"SOFT" 100;letter-spacing:-.015em}
+p{margin:0}
+.ic{display:inline-grid;place-items:center;width:1.25em;height:1.25em;flex:none}
+.ic svg{width:100%;height:100%;stroke-width:2.2}
+:focus-visible{outline:3px solid var(--gema);outline-offset:3px;border-radius:8px}
+
+/* ---------- cabeçalho da página ---------- */
+.intro h1{font-size:32px}
+.intro p{margin-top:8px;color:var(--tinta2);font-size:16px;max-width:34ch}
+.nota{margin:18px 0 0;padding:14px 0 0;border-top:1.5px solid var(--fio)}
+.nota h2{font-size:22px}
+.nota p{margin-top:6px;color:var(--tinta2);font-size:15px}
+.rotulo{margin:34px 0 10px;font-size:14px;font-weight:700;color:var(--tinta2)}
+
+/* ---------- moldura de tela ---------- */
+.tela{border-radius:30px;border:1.5px solid var(--fio);padding:18px 16px 22px;overflow:hidden;position:relative}
+[data-theme=manha] .tela{background:linear-gradient(180deg,#E3F1F8,#F6F9EF 70%)}
+[data-theme=manha] .tela.inicio::before{content:'';position:absolute;right:-70px;top:-90px;width:230px;height:230px;border-radius:50%;
+  background:radial-gradient(circle,#FFE9A6 0%,rgba(255,233,166,.55) 42%,transparent 70%);pointer-events:none}
+[data-theme=mata] .tela{background:linear-gradient(180deg,#123F31,#0D3127)}
+[data-theme=noite] .tela{background:linear-gradient(180deg,#081A26,#05121C)}
+.tela>*{position:relative}
+
+.topo{display:flex;align-items:center;justify-content:space-between}
+.marca{display:flex;align-items:center;gap:8px;font-family:var(--f-titulo);font-weight:var(--peso-titulo);font-size:22px}
+.marca img{width:38px;height:38px;object-fit:contain}
+.topo .acoes{display:flex;gap:8px}
+.redondo{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--fio);background:transparent;color:var(--tinta);font-size:19px}
+[data-theme=manha] .redondo{background:var(--papel);border-color:transparent;box-shadow:0 2px 0 var(--fio)}
+
+/* ---------- hoje ---------- */
+.hoje{margin-top:22px}
+.hoje h2{font-size:46px}
+[data-theme=mata] .hoje h2{font-size:50px;font-weight:500}
+.hoje .unidade{margin-top:6px;font-size:18px;font-weight:600}
+.hoje .tema{margin-top:4px;color:var(--tinta2);font-size:16px;max-width:30ch}
+.hoje .tempo{margin-top:10px;text-align:center;color:var(--tinta2);font-size:14px}
+
+.btn{font:inherit;font-family:var(--f-texto);font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center;gap:9px;
+  width:100%;min-height:58px;padding:14px 20px;border:0;border-radius:var(--raio-btn);cursor:pointer;
+  background:var(--acao);color:var(--na-acao);margin-top:18px;transition:transform .08s,box-shadow .08s}
+[data-theme=manha] .btn{box-shadow:0 5px 0 var(--acao-borda)}
+[data-theme=manha] .btn:active{transform:translateY(4px);box-shadow:0 1px 0 var(--acao-borda)}
+[data-theme=mata] .btn{font-weight:700;letter-spacing:.005em}
+[data-theme=noite] .btn{box-shadow:0 8px 28px rgba(255,216,77,.18)}
+.btn.quieto{background:transparent;color:var(--tinta);border:1.5px solid var(--fio);box-shadow:none;font-weight:700;min-height:50px;font-size:16px;margin-top:0}
+[data-theme=manha] .btn.quieto{background:var(--papel);border-color:transparent;box-shadow:0 3px 0 var(--fio)}
+
+/* ---------- o pé de laranja ---------- */
+.pe{margin-top:30px}
+.pe h3{font-size:22px}
+.pe .conta{margin-top:3px;color:var(--tinta2);font-size:15px}
+.pe svg{display:block;width:100%;height:auto;margin-top:6px;overflow:visible}
+.pe .u{font-family:var(--f-texto);font-size:13px;font-weight:700;fill:var(--tinta2)}
+.pe .u.atual{fill:var(--tinta)}
+.pe .fim{font-family:var(--f-texto);font-size:12px;font-weight:700;fill:var(--tinta2)}
+
+/* ---------- semana ---------- */
+.semana{margin-top:22px;padding-top:18px;border-top:1.5px solid var(--fio);display:flex;align-items:center;justify-content:space-between;gap:10px}
+.semana b{font-size:15px;font-weight:700;white-space:nowrap}
+.semana .dias{display:flex;gap:5px}
+.semana .d{width:28px;height:28px;flex:none;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:700;color:var(--tinta2);border:1.5px solid var(--fio)}
+.semana .d.ok{background:var(--laranja);border-color:var(--laranja);color:#2B1400}
+.semana .d.hoje-d{border-color:var(--tinta);color:var(--tinta)}
+
+/* ---------- passo: fala livre ---------- */
+.passo-topo{display:flex;align-items:center;gap:12px}
+.passo-topo .onde{flex:1}
+.passo-topo .onde b{display:block;font-family:var(--f-titulo);font-weight:var(--peso-titulo);font-size:18px;line-height:1.2}
+.passo-topo .onde span{font-size:14px;color:var(--tinta2)}
+.barra{display:flex;gap:5px;margin-top:14px}
+.barra i{flex:1;height:6px;border-radius:3px;background:var(--fio)}
+.barra i.ok{background:var(--feito)} .barra i.agora{background:var(--acao)}
+.ouvinte{display:block;height:112px;margin:22px auto 4px}
+.passo h2{font-size:30px;text-align:center}
+.passo .dica{margin:10px auto 0;text-align:center;color:var(--tinta2);font-size:15px;max-width:32ch}
+.assunto{margin-top:18px;padding:20px 18px;border-radius:var(--raio);background:var(--papel);text-align:center}
+[data-theme=manha] .assunto{box-shadow:0 4px 0 var(--fio)}
+.assunto p{font-family:var(--f-titulo);font-weight:var(--peso-titulo);font-size:24px;line-height:1.2}
+[data-theme=mata] .assunto p{font-variation-settings:"SOFT" 100;font-weight:500;font-size:26px}
+.molde{margin-top:16px}
+.molde .como{font-size:14px;color:var(--tinta2);text-align:center}
+.molde ol{list-style:none;margin:10px 0 0;padding:0;display:flex;gap:8px}
+.molde li{flex:1;padding:10px 6px;border-radius:14px;border:1.5px solid var(--fio);text-align:center;font-size:13.5px;font-weight:700;line-height:1.25}
+.molde li small{display:block;font-size:12px;font-weight:600;color:var(--tinta2);margin-bottom:2px}
+.molde li.dito{background:var(--papel);border-color:var(--feito)}
+.molde li.dito small{color:var(--feito)}
+.relogio{position:relative;width:132px;height:132px;margin:20px auto 0}
+.relogio svg{width:100%;height:100%;transform:rotate(-90deg)}
+.relogio circle{fill:none;stroke-width:8;stroke-linecap:round}
+.relogio .fundo{stroke:var(--fio)} .relogio .anda{stroke:var(--acao)}
+.relogio div{position:absolute;inset:0;display:grid;place-items:center;text-align:center;font-family:var(--f-titulo);font-weight:var(--peso-titulo);font-size:40px;line-height:1}
+.relogio div small{display:block;font-family:var(--f-texto);font-size:13px;font-weight:600;color:var(--tinta2);margin-top:4px}
+.garantia{margin-top:12px;text-align:center;font-size:13.5px;color:var(--tinta2)}
+
+/* ---------- peças ---------- */
+.pecas{display:grid;gap:22px}
+.cores{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.cor i{display:block;height:54px;border-radius:14px;border:1.5px solid var(--fio)}
+.cor b{display:block;margin-top:6px;font-size:14px;font-weight:700}
+.cor span{font-size:12.5px;color:var(--tinta2)}
+.letra .grande{font-family:var(--f-titulo);font-weight:var(--peso-titulo);font-size:58px;line-height:1}
+[data-theme=mata] .letra .grande{font-variation-settings:"SOFT" 100;font-weight:500}
+.letra .nome{margin-top:8px;font-size:14px;color:var(--tinta2)}
+.letra .corpo{margin-top:10px;font-size:17px;max-width:34ch}
+.duas{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}
+.duas .btn{margin-top:0;font-size:16px;min-height:52px}
+
+/* ---------- trocador ---------- */
+.troca{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:5;
+  display:flex;gap:4px;padding:5px;border-radius:999px;background:rgba(18,24,28,.88);backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.28)}
+.troca button{font:inherit;font-family:'Figtree',system-ui,sans-serif;font-weight:700;font-size:15px;color:#DDE5E9;background:transparent;border:0;border-radius:999px;
+  padding:11px 16px;display:flex;align-items:center;gap:7px;cursor:pointer;min-height:44px}
+.troca button i{width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,255,255,.75)}
+.troca button[aria-selected=true]{background:#fff;color:#12181C}
+.troca button[aria-selected=true] i{border-color:#12181C}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body data-theme="manha">
+<main>
+  <header class="intro">
+    <h1>Três caras para o Vozi</h1>
+    <p>As mesmas telas, com três direções visuais. Troque no controle lá embaixo e veja qual delas parece o Vozi.</p>
+  </header>
+
+  <section class="nota" aria-live="polite">
+    <h2 id="nota-nome"></h2>
+    <p id="nota-ideia"></p>
+  </section>
+
+  <p class="rotulo">Tela inicial, no dia 18 da trilha</p>
+  <section class="tela inicio">
+    <div class="topo">
+      <div class="marca"><img src="../../assets/vozi-base.png" alt="">Vozi</div>
+      <div class="acoes"><span class="redondo" role="img" aria-label="Diário"><span class="ic" data-ic="book-open"></span></span><span class="redondo" role="img" aria-label="Como funciona"><span class="ic" data-ic="circle-help"></span></span></div>
+    </div>
+    <div class="hoje">
+      <h2>Dia 18</h2>
+      <p class="unidade">Clareza: articular sem correr.</p>
+      <p class="tema">Hoje você explica como funciona a chuva.</p>
+      <button class="btn" type="button"><span class="ic" data-ic="play"></span>Começar o dia 18</button>
+      <p class="tempo">Leva uns cinco minutos.</p>
+    </div>
+    <div class="pe">
+      <h3>Seu pé de laranja</h3>
+      <p class="conta">17 laranjas maduras. Cada dia treinado amadurece uma.</p>
+      <svg id="pe" viewBox="0 0 340 352" role="img" aria-label="Trilha de 30 dias desenhada como um galho de laranjeira: 17 dias feitos, o Vozi no dia 18"></svg>
+    </div>
+    <div class="semana">
+      <b>Esta semana</b>
+      <div class="dias"><span class="d ok">S</span><span class="d ok">T</span><span class="d">Q</span><span class="d ok">Q</span><span class="d ok">S</span><span class="d hoje-d">S</span><span class="d">D</span></div>
+    </div>
+  </section>
+
+  <p class="rotulo">Passo 4, a fala livre</p>
+  <section class="tela passo">
+    <div class="passo-topo">
+      <span class="redondo" role="img" aria-label="Sair do treino"><span class="ic" data-ic="x"></span></span>
+      <div class="onde"><b>Dia 18, Clareza</b><span>Passo 4 de 5</span></div>
+    </div>
+    <div class="barra" aria-hidden="true"><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="agora"></i><i></i></div>
+    <img class="ouvinte" src="../../assets/vozi-ouvindo.png" alt="Vozi ouvindo, com a asa atrás do ouvido">
+    <h2>O Vozi quer ouvir</h2>
+    <p class="dica">Fale como quem explica pra alguém do outro lado da sala: boca aberta, palavra inteira.</p>
+    <div class="assunto"><p>Explique como funciona a chuva</p></div>
+    <div class="molde">
+      <p class="como">Siga o molde. Toque em cada parte quando passar por ela.</p>
+      <ol><li class="dito"><small>dito</small>O que é</li><li><small>depois</small>Por que importa</li><li><small>por fim</small>Como funciona</li></ol>
+    </div>
+    <div class="relogio"><svg viewBox="0 0 100 100"><circle class="fundo" cx="50" cy="50" r="44"/><circle class="anda" cx="50" cy="50" r="44" stroke-dasharray="276.5" stroke-dashoffset="83"/></svg><div><span>42<small>segundos</small></span></div></div>
+    <button class="btn" type="button"><span class="ic" data-ic="mic"></span>Diz aí</button>
+    <p class="garantia">Pausar é permitido. O áudio não sai do seu aparelho.</p>
+  </section>
+
+  <p class="rotulo">As peças desta direção</p>
+  <section class="pecas">
+    <div class="cores" id="cores"></div>
+    <div class="letra">
+      <div class="grande">Diz aí.</div>
+      <p class="nome" id="letra-nome"></p>
+      <p class="corpo">O rato roeu a roupa do rei de Roma, e ninguém teve pressa de contar. Três pausas, 130 palavras por minuto.</p>
+    </div>
+    <div class="duas">
+      <button class="btn" type="button"><span class="ic" data-ic="mic"></span>Diz aí</button>
+      <button class="btn quieto" type="button"><span class="ic" data-ic="shuffle"></span>Outro tema</button>
+    </div>
+  </section>
+</main>
+
+<nav class="troca" role="tablist" aria-label="Direção visual">
+  <button role="tab" data-t="manha" aria-selected="true"><i style="background:#DCEEF7"></i>Manhã</button>
+  <button role="tab" data-t="mata" aria-selected="false"><i style="background:#1B5340"></i>Mata</button>
+  <button role="tab" data-t="noite" aria-selected="false"><i style="background:#071722"></i>Noite</button>
+</nav>
+
+<script>
+const ICONES={"mic":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M12 19v3\" /> <path d=\"M19 10v2a7 7 0 0 1-14 0v-2\" /> <rect x=\"9\" y=\"2\" width=\"6\" height=\"13\" rx=\"3\" /> </svg>","x":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M18 6 6 18\" /> <path d=\"m6 6 12 12\" /> </svg>","book-open":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M12 5v16\" /> <path d=\"M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z\" /> </svg>","circle-help":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <circle cx=\"12\" cy=\"12\" r=\"10\" /> <path d=\"M9 9.5a3 2.5 0 016 0c0 2-2 2-3 3.5\" /> <path d=\"M12 17h.01\" /> </svg>","check":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M20 6 9 17l-5-5\" /> </svg>","wind":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M12.8 19.6A2 2 0 1 0 14 16H2\" /> <path d=\"M17.5 8a2.5 2.5 0 1 1 2 4H2\" /> <path d=\"M9.8 4.4A2 2 0 1 1 11 8H2\" /> </svg>","pause":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <rect x=\"14\" y=\"3\" width=\"5\" height=\"18\" rx=\"1\" /> <rect x=\"5\" y=\"3\" width=\"5\" height=\"18\" rx=\"1\" /> </svg>","speech":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M8.8 20v-4.1l1.9.2a2.3 2.3 0 0 0 2.164-2.1V8.3A5.37 5.37 0 0 0 2 8.25c0 2.8.656 3.054 1 4.55a5.77 5.77 0 0 1 .029 2.758L2 20\" /> <path d=\"M19.8 17.8a7.5 7.5 0 0 0 .003-10.603\" /> <path d=\"M17 15a3.5 3.5 0 0 0-.025-4.975\" /> </svg>","layers":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z\" /> <path d=\"M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12\" /> <path d=\"M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17\" /> </svg>","headphones":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3\" /> </svg>","play":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z\" /> </svg>","shuffle":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"m18 14 4 4-4 4\" /> <path d=\"m18 2 4 4-4 4\" /> <path d=\"M2 18h1.973a4 4 0 0 0 3.3-1.7l5.454-8.6a4 4 0 0 1 3.3-1.7H22\" /> <path d=\"M2 6h1.972a4 4 0 0 1 3.6 2.2\" /> <path d=\"M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45\" /> </svg>"};
+document.querySelectorAll('[data-ic]').forEach(e=>{ e.innerHTML=ICONES[e.dataset.ic]||''; });
+
+const DIRECOES={
+  manha:{nome:'Manhã',ideia:'O sabiá canta cedo. Céu claro, laranja madura e botões que dá vontade de apertar. A mais leve e a mais próxima de um jogo.',
+    letra:'Gabarito, uma letra só, feita para aplicativos de aprender.',
+    cores:[['Céu','--ceu'],['Tinta','--tinta'],['Laranja','--acao'],['Folha','--feito'],['Gema','--gema'],['Papel','--papel']]},
+  mata:{nome:'Mata',ideia:'A sombra da laranjeira. Verde fundo, letra com serifa macia e muito respiro. A mais calma e a mais adulta.',
+    letra:'Fraunces nos títulos, Figtree no texto.',
+    cores:[['Mata','--ceu'],['Creme','--tinta'],['Laranja','--acao'],['Broto','--feito'],['Gema','--gema'],['Sombra','--papel']]},
+  noite:{nome:'Noite',ideia:'O Vozi de hoje, arrumado. Mesmo azul escuro e mesmo dourado, com letra própria, ícones de verdade e o pé de laranja.',
+    letra:'Bricolage Grotesque, uma letra só, com um pouco de sotaque.',
+    cores:[['Noite','--ceu'],['Lua','--tinta'],['Dourado','--acao'],['Vaga-lume','--feito'],['Laranja','--laranja'],['Azul fundo','--papel']]},
+};
+
+/* o pé de laranja: 30 dias num galho que desce em zigue-zague */
+function desenhaPe(svg,feitos,hoje){
+  const X0=30,X1=310,Y0=58,DY=68, porLinha=7, total=30; const pts=[];
+  for(let d=1;d<=total;d++){ const l=Math.floor((d-1)/porLinha), c=(d-1)%porLinha; const frac=c/(porLinha-1);
+    const x=l%2===0?X0+(X1-X0)*frac:X1-(X1-X0)*frac; const y=Y0+l*DY+Math.sin(d*1.35)*5; pts.push({d,x,y,l}); }
+  // caminho suave passando por todos os dias, com a volta arredondada no fim de cada linha
+  const via=[]; pts.forEach((p,i)=>{ via.push([p.x,p.y]); const n=pts[i+1]; if(n&&n.l!==p.l){ const fora=p.l%2===0?X1+20:X0-20; via.push([fora,(p.y+n.y)/2]); } });
+  let dPath=`M${via[0][0]-16},${via[0][1]+4} L${via[0][0]},${via[0][1]}`;
+  for(let i=0;i<via.length-1;i++){ const p0=via[i-1]||via[i],p1=via[i],p2=via[i+1],p3=via[i+2]||p2; const t=.18;
+    dPath+=` C${p1[0]+(p2[0]-p0[0])*t},${p1[1]+(p2[1]-p0[1])*t} ${p2[0]-(p3[0]-p1[0])*t},${p2[1]-(p3[1]-p1[1])*t} ${p2[0]},${p2[1]}`; }
+  const folha=(x,y,r,cor)=>`<path d="M0,0 C4,-7 13,-8 17,-2 C12,4 4,5 0,0Z" transform="translate(${x},${y}) rotate(${r})" fill="${cor}"/>`;
+  let h=`<path d="${dPath}" fill="none" stroke="var(--galho)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>`;
+  // folhas soltas no galho, entre os dias
+  pts.forEach((p,i)=>{ if(i%3===1){ const n=pts[i+1]; if(n&&n.l===p.l){ const mx=(p.x+n.x)/2,my=(p.y+n.y)/2; h+=folha(mx,my-2,i%2?-55:-125,'var(--folha)'); } } });
+  const nomes=['Fôlego','Pausa','Clareza','Estrutura','Antes e depois'];
+  pts.forEach(p=>{
+    if(p.d===(p.l*porLinha+1)){ const esq=p.l%2===0; const atual=hoje>=p.d&&hoje<p.d+porLinha;
+      h+=`<text class="u${atual?' atual':''}" x="${esq?X0-12:X1+12}" y="${p.y-27}" text-anchor="${esq?'start':'end'}">${nomes[p.l]}</text>`; }
+    if(p.d<=feitos){ // laranja madura
+      h+=`<g transform="translate(${p.x},${p.y+9})"><path d="M0,-12 V-16" stroke="var(--galho)" stroke-width="2.4" stroke-linecap="round"/>${folha(0,-14,-28,'var(--folha)')}
+        <circle r="12" fill="var(--laranja)"/><path d="M-9.5,5 A12,12 0 0 0 9.5,5 A14,14 0 0 1 -9.5,5Z" fill="var(--laranja-sombra)" opacity=".55"/><ellipse cx="-4" cy="-5" rx="3.6" ry="2.4" fill="#fff" opacity=".45" transform="rotate(-30 -4 -5)"/></g>`;
+    } else if(p.d===hoje){
+      h+=`<ellipse cx="${p.x}" cy="${p.y+2}" rx="21" ry="6" fill="var(--gema)" opacity=".32"/><image href="../../assets/vozi-base.png" x="${p.x-27}" y="${p.y-50}" width="54" height="54"/>`;
+    } else { // flor de laranjeira, ainda por vir
+      let f=''; for(let k=0;k<5;k++){ const a=k*72-90, rx=Math.cos(a*Math.PI/180)*5, ry=Math.sin(a*Math.PI/180)*5; f+=`<circle cx="${rx.toFixed(1)}" cy="${ry.toFixed(1)}" r="4.1" fill="var(--flor)" stroke="var(--flor-fio)" stroke-width="1"/>`; }
+      h+=`<g transform="translate(${p.x},${p.y})">${f}<circle r="2.6" fill="var(--gema)"/></g>`;
+    }
+    if(p.d===total)h+=`<text class="fim" x="${p.x+16}" y="${p.y+4}">dia 30</text>`;
+  });
+  svg.innerHTML=h;
+}
+desenhaPe(document.getElementById('pe'),17,18);
+
+function aplica(t){
+  if(!DIRECOES[t])t='manha'; const d=DIRECOES[t]; document.body.dataset.theme=t;
+  document.getElementById('nota-nome').textContent=d.nome; document.getElementById('nota-ideia').textContent=d.ideia;
+  document.getElementById('letra-nome').textContent=d.letra;
+  const cs=getComputedStyle(document.body);
+  document.getElementById('cores').innerHTML=d.cores.map(([n,v])=>{ const hex=cs.getPropertyValue(v).trim().toUpperCase(); return `<div class="cor"><i style="background:var(${v})"></i><b>${n}</b><span>${hex}</span></div>`; }).join('');
+  document.querySelectorAll('.troca button').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===t));
+  try{ history.replaceState(null,'','#'+t); }catch(e){}
+}
+document.querySelectorAll('.troca button').forEach(b=>b.addEventListener('click',()=>aplica(b.dataset.t)));
+aplica((location.hash||'#manha').slice(1));
+</script>
+</body>
+</html>
