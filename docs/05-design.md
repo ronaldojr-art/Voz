@@ -1,6 +1,6 @@
 # 05 — Sistema de design do Vozi: as três direções
 
-> **Para ver no celular:** `https://ronaldojr-art.github.io/voz/docs/design/`
+> **Para ver no celular:** `https://ronaldojr-art.github.io/Voz/docs/design/`
 > As mesmas telas, com três direções visuais. O controle no rodapé troca entre elas.
 
 Este doc registra o raciocínio, as três propostas e o que falta decidir. Depois da escolha do fundador, ele vira a especificação completa (escala de letra, espaçamentos, estados dos componentes) e a direção escolhida é aplicada no app.
