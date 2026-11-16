@@ -30,7 +30,7 @@ Por observação do produto e material público (blog e entrevistas do time do D
 
 O motivo da linha: o público do Vozi chega inseguro com a própria fala. Uma tabela de "quem fala melhor" espanta exatamente quem mais precisa. Uma tabela de "quem apareceu" premia o comportamento que melhora a fala de qualquer um.
 
-Referência de impacto: Jorge Mazal, ex-diretor de produto do Duolingo, relatou que as ligas aumentaram o tempo total de estudo em cerca de 17% e triplicaram os usuários muito engajados. Número citado de memória; conferir antes de usar em material externo.
+Referência de impacto: Jorge Mazal, ex-diretor de produto do Duolingo, relatou que as ligas aumentaram o tempo total de estudo em cerca de 17% e triplicaram os usuários muito engajados. O número foi localizado depois no texto do próprio Mazal. É dado da empresa, sem auditoria. O Duolingo também admite que o ganho veio sobretudo dos usuários já muito ativos (ver [doc 07](07-base-cientifica.md)).
 
 ### Regras
 

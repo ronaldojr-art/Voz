@@ -37,6 +37,8 @@ Conteúdo sorteado pela data (igual à Feira do Dia): mesmo dia, mesmo tema/text
 
 ## O que a ciência sustenta (resumo honesto)
 
+> **Aviso:** esta seção foi escrita antes da revisão de fontes. Parte dela não se confirmou, a começar pela faixa de palavras por minuto, que vale para o inglês. O [doc 07](07-base-cientifica.md) a substitui.
+
 - **Ritmo:** conversa calma em português fica na faixa de ~120–150 palavras por minuto. O app rotula acima de 165 como "acelerado" e abaixo de 115 como "bem calmo". Treinar *abaixo* do alvo é desejável: quem treina a 120 fala a 140 sob pressão.
 - **Pausas:** a percepção de "fala clara e segura" depende mais de pausas nas fronteiras de ideia do que de velocidade média. Por isso a leitura guiada para nas vírgulas e pontos, não só anda devagar.
 - **Auto-monitoramento:** gravar e reescutar é a intervenção mais consistente em treinamentos de fala em público; o ganho vem da calibração ("soo melhor do que achava, e o rápido tem lugares específicos").

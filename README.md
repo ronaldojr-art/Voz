@@ -33,6 +33,7 @@ Uma trilha de 30 dias dá progressão: uma unidade por semana, e no fim você ou
 | [docs/04-revoada.md](docs/04-revoada.md) | **Revoada**: a sala onde os pássaros se apresentam. Rodada, as duas portas (amigos e desconhecidos), segurança e teste antes de programar |
 | [docs/05-design.md](docs/05-design.md) | Sistema de design: o pé de laranja como assinatura e três direções visuais para escolher, com prévia em `docs/design/` |
 | [docs/06-voz-e-textos.md](docs/06-voz-e-textos.md) | A voz do Vozi: seis regras de texto, um nome para cada coisa, e a revisão tela por tela |
+| [docs/07-base-cientifica.md](docs/07-base-cientifica.md) | A base científica: o que a pesquisa sustenta em cada passo, o que não sustenta, e a lista de mudanças |
 
 ## Status
 
