@@ -101,6 +101,27 @@ button{font:inherit;color:inherit}
 .pe .u.atual{fill:var(--tinta)}
 .pe .fim{font-size:12px;font-weight:700;fill:var(--tinta2)}
 .nota-pe{margin-top:8px;font-size:13.5px;color:var(--tinta2)}
+/* a laranja amadurece: um momento só, quando a pessoa volta de um dia de trilha */
+.pe .fruta-nova,.pe .flor-velha,.pe .anel,.pe .chega{transform-box:fill-box;transform-origin:center}
+.pe .fruta-nova{transform-origin:50% 18%}
+.pe svg.antes .fruta-nova,.pe svg.antes .chega{transform:scale(0)}
+.pe svg.antes .vozi-pulo{transform:translate(var(--dx),var(--dy))}
+.pe svg.antes .pouso,.pe svg.antes .anel{opacity:0}
+.pe svg.vai .flor-velha{animation:pe-cai .45s ease-in forwards}
+.pe svg.vai .fruta-nova{animation:pe-cresce .9s .25s cubic-bezier(.3,1.5,.5,1) both}
+.pe svg.vai .fruta-nova .casca{animation:pe-madura 1.15s .25s ease-out both}
+.pe svg.vai .anel{animation:pe-anel .8s .95s ease-out both}
+.pe svg.vai .vozi-pulo{animation:pe-vai .55s 1.3s cubic-bezier(.4,0,.2,1) both}
+.pe svg.vai .vozi-salto{animation:pe-salto .55s 1.3s ease-in-out both}
+.pe svg.vai .pouso{animation:pe-surge .3s 1.8s both}
+.pe svg.vai .chega{animation:pe-cresce .6s 1.25s cubic-bezier(.3,1.5,.5,1) both}
+@keyframes pe-cai{to{transform:translateY(9px) scale(.2);opacity:0}}
+@keyframes pe-cresce{from{transform:scale(0)}to{transform:scale(1)}}
+@keyframes pe-madura{0%{fill:#7FB24A}45%{fill:#E8C93A}100%{fill:var(--laranja)}}
+@keyframes pe-anel{0%{opacity:0;transform:scale(1)}15%{opacity:.75}100%{opacity:0;transform:scale(2.6)}}
+@keyframes pe-vai{from{transform:translate(var(--dx),var(--dy))}to{transform:translate(0,0)}}
+@keyframes pe-salto{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes pe-surge{from{opacity:0}to{opacity:.32}}
 .semana{margin-top:22px;padding-top:18px;border-top:1.5px solid var(--fio);display:flex;align-items:center;justify-content:space-between;gap:10px}
 .semana b{font-size:15px;font-weight:700;white-space:nowrap}
 .week{display:flex;gap:5px}
@@ -614,7 +635,7 @@ function restartTrail(){ if(confirm('Recomeçar a trilha do dia 1? O diário con
 
 /* o pé de laranja: 30 dias num galho que desce em zigue-zague.
    dia por vir = flor, dia treinado = laranja madura, o Vozi pousa no dia de hoje */
-function desenhaPe(svg,feitos,hoje){
+function desenhaPe(svg,feitos,hoje,anima){
   const X0=30,X1=310,Y0=58,DY=68,porLinha=7,total=30,pts=[];
   for(let d=1;d<=total;d++){ const l=Math.floor((d-1)/porLinha), c=(d-1)%porLinha, frac=c/(porLinha-1);
     pts.push({d,l,x:l%2===0?X0+(X1-X0)*frac:X1-(X1-X0)*frac,y:Y0+l*DY+Math.sin(d*1.35)*5}); }
@@ -628,28 +649,46 @@ function desenhaPe(svg,feitos,hoje){
   pts.forEach(p=>{
     if(p.d===p.l*porLinha+1){ const esq=p.l%2===0, u=UNIDADES[p.l], atual=hoje>=u.de&&hoje<=u.ate;
       h+=`<text class="u${atual?' atual':''}" x="${esq?X0-12:X1+12}" y="${p.y-27}" text-anchor="${esq?'start':'end'}">${u.nome}</text>`; }
+    const flor=cls=>{ let f=''; for(let k=0;k<5;k++){ const a=(k*72-90)*Math.PI/180; f+=`<circle cx="${(Math.cos(a)*5).toFixed(1)}" cy="${(Math.sin(a)*5).toFixed(1)}" r="4.1" fill="var(--flor)" stroke="var(--flor-fio)" stroke-width="1"/>`; }
+      return `<g transform="translate(${p.x},${p.y})"><g${cls?` class="${cls}"`:''}>${f}<circle r="2.6" fill="var(--gema)"/></g></g>`; };
     if(p.d<=feitos){
-      h+=`<g transform="translate(${p.x},${p.y+9})"><path d="M0,-12 V-16" stroke="var(--galho)" stroke-width="2.4" stroke-linecap="round"/>${folha(0,-14,-28)}
-        <circle r="12" fill="var(--laranja)"/><path d="M-9.5,5 A12,12 0 0 0 9.5,5 A14,14 0 0 1 -9.5,5Z" fill="var(--laranja-sombra)" opacity=".55"/><ellipse cx="-4" cy="-5" rx="3.6" ry="2.4" fill="#fff" opacity=".45" transform="rotate(-30 -4 -5)"/></g>`;
+      const nova=p.d===anima;   // a laranja de hoje: nasce da flor, na frente da pessoa
+      if(nova)h+=flor('flor-velha')+`<g transform="translate(${p.x},${p.y+9})"><circle class="anel" r="13" fill="none" stroke="var(--gema)" stroke-width="3"/></g>`;
+      h+=`<g transform="translate(${p.x},${p.y+9})"><g${nova?' class="fruta-nova"':''}><path d="M0,-12 V-16" stroke="var(--galho)" stroke-width="2.4" stroke-linecap="round"/>${folha(0,-14,-28)}
+        <circle class="casca" r="12" fill="var(--laranja)"/><path d="M-9.5,5 A12,12 0 0 0 9.5,5 A14,14 0 0 1 -9.5,5Z" fill="var(--laranja-sombra)" opacity=".55"/><ellipse cx="-4" cy="-5" rx="3.6" ry="2.4" fill="#fff" opacity=".45" transform="rotate(-30 -4 -5)"/></g></g>`;
     } else if(p.d===hoje){
-      h+=`<ellipse cx="${p.x}" cy="${p.y+2}" rx="21" ry="6" fill="var(--gema)" opacity=".32"/><image href="assets/vozi-base.png" x="${p.x-27}" y="${p.y-50}" width="54" height="54"/>`;
-    } else {
-      let f=''; for(let k=0;k<5;k++){ const a=(k*72-90)*Math.PI/180; f+=`<circle cx="${(Math.cos(a)*5).toFixed(1)}" cy="${(Math.sin(a)*5).toFixed(1)}" r="4.1" fill="var(--flor)" stroke="var(--flor-fio)" stroke-width="1"/>`; }
-      h+=`<g transform="translate(${p.x},${p.y})">${f}<circle r="2.6" fill="var(--gema)"/></g>`;
-    }
-    if(p.d===total)h+=hoje>total?`<image href="assets/vozi-comemora.png" x="${p.x+18}" y="${p.y-44}" width="64" height="64"/>`:`<text class="fim" x="${p.x+16}" y="${p.y+4}">dia 30</text>`;
+      const de=anima?pts[anima-1]:null;   // de onde o Vozi vem pulando
+      h+=`<ellipse${de?' class="pouso"':''} cx="${p.x}" cy="${p.y+2}" rx="21" ry="6" fill="var(--gema)" opacity=".32"/>`
+        +(de?`<g class="vozi-pulo" style="--dx:${(de.x-p.x).toFixed(1)}px;--dy:${(de.y-p.y).toFixed(1)}px"><g class="vozi-salto">`:'')
+        +`<image href="assets/vozi-base.png" x="${p.x-27}" y="${p.y-50}" width="54" height="54"/>`+(de?'</g></g>':'');
+    } else h+=flor('');
+    if(p.d===total)h+=hoje>total?`<image${anima===total?' class="chega"':''} href="assets/vozi-comemora.png" x="${p.x+18}" y="${p.y-44}" width="64" height="64"/>`:`<text class="fim" x="${p.x+16}" y="${p.y+4}">dia 30</text>`;
   });
   svg.innerHTML=h;
   svg.setAttribute('aria-label',hoje>total?'Trilha de 30 dias completa: o pé de laranja está carregado.':`Trilha de 30 dias desenhada como um galho de laranjeira: ${feitos} ${feitos===1?'dia feito':'dias feitos'}, o Vozi pousado no dia ${hoje}.`);
+}
+let amadurecer=0;   // dia de trilha que acabou de ser fechado: a animação toca uma vez, ao voltar para o início
+function semMovimento(){ return !!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches); }
+function tocaAmadurece(svg,feitos,hoje){
+  const flor=svg.querySelector('.flor-velha'); if(!flor)return; svg.classList.add('antes');
+  const r=flor.getBoundingClientRect(), fora=r.bottom>window.innerHeight-40||r.top<70;
+  if(fora)try{ flor.scrollIntoView({block:'center',behavior:'smooth'}); }catch(e){ svg.scrollIntoView(); }
+  setTimeout(()=>{ if(!svg.isConnected)return; svg.classList.add('vai');
+    setTimeout(()=>{ const c=document.querySelector('#home-pe .conta'); if(c&&svg.isConnected)c.textContent=contaLaranjas(feitos); },1050);
+    // terminou: redesenha parado, senão a animação tocaria de novo cada vez que a tela reaparece
+    setTimeout(()=>{ if(!svg.isConnected)return; svg.classList.remove('antes','vai'); desenhaPe(svg,feitos,hoje,0); },2500);
+  },fora?700:400);
 }
 function contaLaranjas(n){ return n===0?'Nenhuma laranja ainda. Cada dia treinado amadurece uma.':n>=30?'30 laranjas maduras. O pé está carregado.':`${n} ${n===1?'laranja madura':'laranjas maduras'}. Cada dia treinado amadurece uma.`; }
 
 function renderTrailCard(){
   const el=document.getElementById('home-trail'), pe=document.getElementById('home-pe'), livre=document.getElementById('home-livre'), next=S.trail.day, feitos=Math.min(30,next-1);
-  pe.innerHTML=`<h3>Seu pé de laranja</h3><p class="conta">${contaLaranjas(feitos)}</p><svg id="pe" viewBox="0 0 340 352" role="img"></svg>`
+  const anima=(amadurecer&&amadurecer===next-1&&!semMovimento())?amadurecer:0; amadurecer=0;
+  pe.innerHTML=`<h3>Seu pé de laranja</h3><p class="conta" aria-live="polite">${contaLaranjas(anima?feitos-1:feitos)}</p><svg id="pe" viewBox="0 0 340 352" role="img"></svg>`
     +(next>30?`<div class="centro"><button class="btn ghost small" onclick="restartTrail()">${ic('rotate-ccw')}Recomeçar a trilha</button></div>`
              :`<p class="nota-pe">O dia avança quando você treina, não quando o calendário anda.</p>`);
-  desenhaPe(document.getElementById('pe'),feitos,next);
+  desenhaPe(document.getElementById('pe'),feitos,next,anima);
+  if(anima)tocaAmadurece(document.getElementById('pe'),feitos,next);
   if(next>30){
     livre.style.display='none';
     el.innerHTML=`<h2>Trilha completa</h2><p class="unidade">Trinta treinos. Ouça de onde você saiu e onde chegou.</p><div id="ba-home"></div>
@@ -871,7 +910,7 @@ function saveSession(){
     const meta={ppm:session.ppm||null,fillers:session.fillers||0,secs:session.secs||0,date:session.date,audio:!!blob};
     if(n===1&&(avanca||(blob&&!(T.antes&&T.antes.audio)))){ T.antes=meta; T.tema1=session.tema; if(blob)saveAudio('antes',blob); }
     if(n===30&&(avanca||blob)){ T.depois=meta; if(blob)saveAudio('depois',blob); }
-    if(avanca){ T.day=n+1; T.last=session.date; }
+    if(avanca){ T.day=n+1; T.last=session.date; amadurecer=n; }
     fx={n,avanca,fechou:avanca&&[7,14,21,28].includes(n),completa:avanca&&n===30};
   }
   save(); finish(fx);
